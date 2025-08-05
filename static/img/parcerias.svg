@@ -1,0 +1,24 @@
+<svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e6b800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd700;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="100" rx="10" fill="url(#goldGradient)" opacity="0.1"/>
+  
+  <!-- Border -->
+  <rect x="2" y="2" width="196" height="96" rx="8" fill="none" stroke="url(#goldGradient)" stroke-width="2"/>
+  
+  <!-- Text -->
+  <text x="100" y="45" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#e6b800">PARCEIRO</text>
+  <text x="100" y="65" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1a1a2e">Premium</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="30" cy="30" r="3" fill="#e6b800" opacity="0.6"/>
+  <circle cx="170" cy="30" r="3" fill="#e6b800" opacity="0.6"/>
+  <circle cx="30" cy="70" r="3" fill="#e6b800" opacity="0.6"/>
+  <circle cx="170" cy="70" r="3" fill="#e6b800" opacity="0.6"/>
+</svg> 
