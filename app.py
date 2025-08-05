@@ -7,9 +7,11 @@ import logging
 import datetime
 import pytz
 import os
+from config import Config
 
 app = Flask(__name__)
 CORS(app)
+app.config.from_object(Config)
 
 # Configurar logging
 logging.basicConfig(
@@ -32,22 +34,6 @@ SIGNO_MAP = {
     'aquario': 'aquario', 'aquário': 'aquario', 'aquarius': 'aquario',
     'peixes': 'peixes', 'pisces': 'peixes'
 }
-
-# Lista de signos para o select do frontend
-SIGNOS_SELECT = [
-    ('aries', 'Áries'),
-    ('touro', 'Touro'),
-    ('gemeos', 'Gêmeos'),
-    ('cancer', 'Câncer'),
-    ('leao', 'Leão'),
-    ('virgem', 'Virgem'),
-    ('libra', 'Libra'),
-    ('escorpiao', 'Escorpião'),
-    ('sagitario', 'Sagitário'),
-    ('capricornio', 'Capricórnio'),
-    ('aquario', 'Aquário'),
-    ('peixes', 'Peixes')
-]
 
 # Buscar horóscopo do UOL (diário)
 def get_horoscope_diario(signo):
@@ -135,23 +121,30 @@ def get_fase_lua():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    """Página principal"""
     horoscopo_diario = "Sintonize-se com o horóscopo do dia e descubra os sinais que o universo envia ao seu coração."
     horoscopo_semanal = "Escolha seu signo e tipo de horóscopo para ver a previsão semanal."
     signo = ""
     fase_lua = get_fase_lua()
+    
     if request.method == 'POST':
         signo = request.form.get("signo")
         if signo:
             horoscopo_diario = get_horoscope_diario(signo)
             horoscopo_semanal = get_horoscopo_semanal(signo)
             print(f"Horóscopo semanal para {signo}: {horoscopo_semanal}")
+    
     return render_template(
         'index.html',
         horoscopo_diario=horoscopo_diario,
         horoscopo_semanal=horoscopo_semanal,
         signo=signo,
         fase_lua=fase_lua,
-        signos_select=SIGNOS_SELECT
+        signos_select=Config.get_signos_select(),
+        parcerias=Config.PARCERIAS,
+        servicos=Config.SERVICOS,
+        depoimentos=Config.DEPOIMENTOS,
+        midias_sociais=Config.MIDIAS_SOCIAIS
     )
 
 @app.route('/horoscopo', methods=['POST'])
@@ -164,21 +157,33 @@ def horoscopo_api():
 
 @app.errorhandler(404)
 def not_found(error):
+    """Página 404 personalizada"""
     return render_template('index.html', 
                          horoscopo_diario="Página não encontrada. Volte ao início.",
                          horoscopo_semanal="",
                          signo="",
                          fase_lua=get_fase_lua(),
-                         signos_select=SIGNOS_SELECT), 404
+                         signos_select=Config.get_signos_select(),
+                         parcerias=Config.PARCERIAS,
+                         servicos=Config.SERVICOS,
+                         depoimentos=Config.DEPOIMENTOS,
+                         midias_sociais=Config.MIDIAS_SOCIAIS), 404
 
 @app.errorhandler(500)
 def internal_error(error):
+    """Página 500 personalizada"""
     return render_template('index.html',
                          horoscopo_diario="Erro interno do servidor. Tente novamente.",
                          horoscopo_semanal="",
                          signo="",
                          fase_lua=get_fase_lua(),
-                         signos_select=SIGNOS_SELECT), 500
+                         signos_select=Config.get_signos_select(),
+                         parcerias=Config.PARCERIAS,
+                         servicos=Config.SERVICOS,
+                         depoimentos=Config.DEPOIMENTOS,
+                         midias_sociais=Config.MIDIAS_SOCIAIS), 500
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000))) 
+    app.run(debug=Config.DEBUG, 
+            host=Config.HOST, 
+            port=Config.PORT) 

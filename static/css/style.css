@@ -1,0 +1,122 @@
+/* Estilos base */
+body { 
+  font-family: 'Inter', sans-serif; 
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif-title { 
+  font-family: 'Cormorant Garamond', serif !important; 
+}
+
+/* Efeito de partículas místicas */
+.particle-mystic {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.15;
+  pointer-events: none;
+  filter: blur(1px);
+  transition: opacity 0.5s;
+  z-index: 0;
+}
+
+/* Gradiente animado */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.mystic-gradient {
+  background: linear-gradient(-45deg, #533483, #8b5cf6, #a855f7, #7c3aed, #6366f1);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Efeitos de cards */
+.card-glow {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  transform: translateY(-5px);
+}
+
+.mystic-border {
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #8b5cf6, #a855f7, #7c3aed) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+/* Animações */
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Backgrounds especiais */
+.crystal-bg {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 50%, rgba(124, 58, 237, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* Efeitos de texto */
+.text-glow {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.mystic-text {
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .floating {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .card-glow:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Transições suaves */
+.fade-section {
+  transition: all 0.7s ease;
+}
+
+/* Efeitos de hover para links */
+a:hover {
+  transition: all 0.3s ease;
+}
+
+/* Estilos para formulários */
+.form-input {
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  transform: scale(1.02);
+}
+
+/* Estilos para botões */
+.btn-mystic {
+  background: linear-gradient(45deg, #8b5cf6, #a855f7);
+  transition: all 0.3s ease;
+}
+
+.btn-mystic:hover {
+  background: linear-gradient(45deg, #7c3aed, #9333ea);
+  transform: translateY(-2px);
+} 
