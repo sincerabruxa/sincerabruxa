@@ -6,12 +6,16 @@ import unicodedata
 import logging
 import datetime
 import pytz
+import os
 
 app = Flask(__name__)
 CORS(app)
 
 # Configurar logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
 # Mapeamento robusto de nomes de signos para slug da UOL
 SIGNO_MAP = {
@@ -158,5 +162,23 @@ def horoscopo_api():
     horoscopo_diario = get_horoscope_diario(signo)
     return jsonify({'horoscopo_diario': horoscopo_diario})
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('index.html', 
+                         horoscopo_diario="Página não encontrada. Volte ao início.",
+                         horoscopo_semanal="",
+                         signo="",
+                         fase_lua=get_fase_lua(),
+                         signos_select=SIGNOS_SELECT), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('index.html',
+                         horoscopo_diario="Erro interno do servidor. Tente novamente.",
+                         horoscopo_semanal="",
+                         signo="",
+                         fase_lua=get_fase_lua(),
+                         signos_select=SIGNOS_SELECT), 500
+
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000))) 
