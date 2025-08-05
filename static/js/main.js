@@ -37,14 +37,59 @@ function initMobileMenu() {
   
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.remove('hidden');
+      // Pequeno delay para garantir que a animação funcione
+      setTimeout(() => {
+        mobileMenu.classList.add('show');
+      }, 10);
+      
+      // Prevenir scroll do body
+      document.body.style.overflow = 'hidden';
     });
     
     if (menuClose) {
       menuClose.addEventListener('click', function() {
-        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('show');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 300);
       });
     }
+    
+    // Fechar menu ao clicar em um link
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.remove('show');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 300);
+      });
+    });
+    
+    // Fechar menu ao clicar fora dele
+    mobileMenu.addEventListener('click', function(e) {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.remove('show');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 300);
+      }
+    });
+    
+    // Fechar menu com tecla ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('show');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 300);
+      }
+    });
   }
 }
 

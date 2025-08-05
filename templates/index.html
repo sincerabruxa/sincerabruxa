@@ -41,33 +41,72 @@
           <i class="fas fa-handshake mr-2"></i>Parcerias
         </a>
       </nav>
-      <button id="menu-toggle" class="md:hidden text-yellow-300 text-2xl focus:outline-none">
-        <i class="fas fa-bars"></i>
-      </button>
+             <button id="menu-toggle" class="md:hidden text-yellow-300 text-2xl focus:outline-none p-2 rounded-lg hover:bg-purple-500/20 transition-all duration-300">
+         <i class="fas fa-bars"></i>
+       </button>
     </div>
     
-    <!-- Menu Mobile -->
-    <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/90 z-50 flex flex-col items-center justify-center space-y-8 text-2xl font-bold mystic-text hidden">
-      <button id="menu-close" class="absolute top-8 right-8 text-4xl">&times;</button>
-      <a href="#horoscopo" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-        <i class="fas fa-star mr-3"></i>Horóscopo
-      </a>
-      <a href="#fase-lua" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-        <i class="fas fa-moon mr-3"></i>Fase da Lua
-      </a>
-      <a href="#sobre" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-        <i class="fas fa-user mr-3"></i>Sobre
-      </a>
-      <a href="#servicos" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-        <i class="fas fa-cards-blank mr-3"></i>Serviços
-      </a>
-      <a href="#contato" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-        <i class="fas fa-envelope mr-3"></i>Contato
-      </a>
-      <a href="#parcerias" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-        <i class="fas fa-handshake mr-3"></i>Parcerias
-      </a>
-    </div>
+    <div id="mobile-menu" 
+    class="md:hidden fixed inset-0 bg-black/70 backdrop-blur-2xl z-50 
+           flex flex-col items-center justify-center space-y-6 
+           text-xl font-medium hidden opacity-0 scale-95 
+           transition-all duration-300 ease-in-out">
+ 
+ <!-- Header -->
+ <div class="absolute top-0 left-0 right-0 p-6 flex items-center justify-between border-b border-purple-500/30">
+   <div class="flex items-center space-x-3">
+     <div class="text-2xl">🔮</div>
+     <span class="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+       Menu
+     </span>
+   </div>
+   <button id="menu-close" aria-label="Fechar menu" 
+           class="text-3xl text-purple-300 hover:text-yellow-300 transition-colors duration-300">
+     <i class="fas fa-times"></i>
+   </button>
+ </div>
+
+ <!-- Links -->
+ <nav class="flex flex-col space-y-4 w-full max-w-sm px-6">
+   <a href="#horoscopo" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:border-white/40 hover:shadow-lg">
+     <i class="fas fa-star text-yellow-400"></i>
+     <span>Horóscopo</span>
+   </a>
+
+   <a href="#fase-lua" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:border-white/40 hover:shadow-lg">
+     <i class="fas fa-moon text-blue-400"></i>
+     <span>Fase da Lua</span>
+   </a>
+
+   <a href="#sobre" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 hover:border-white/40 hover:shadow-lg">
+     <i class="fas fa-user text-purple-400"></i>
+     <span>Sobre</span>
+   </a>
+
+   <a href="#servicos" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 hover:border-white/40 hover:shadow-lg">
+     <i class="fas fa-cards-blank text-pink-400"></i>
+     <span>Serviços</span>
+   </a>
+
+   <a href="#midias" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-green-400 hover:to-blue-400 hover:border-white/40 hover:shadow-lg">
+     <i class="fas fa-share-alt text-green-400"></i>
+     <span>Mídias Sociais</span>
+   </a>
+
+   <a href="#contato" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-red-500 hover:to-pink-500 hover:border-white/40 hover:shadow-lg">
+     <i class="fas fa-envelope text-red-400"></i>
+     <span>Contato</span>
+   </a>
+ </nav>
+
+ <!-- Footer -->
+ <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-purple-500/30 text-center">
+   <p class="text-sm text-gray-400 mb-2">A Sincera Bruxa</p>
+   <p class="text-xs text-gray-500">Conectando você com os mistérios</p>
+ </div>
+</div>
+
+
   </header>
 
   <!-- Hero Section -->
@@ -362,35 +401,51 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="w-full mt-20 mystic-gradient text-center py-12">
     <div class="max-w-4xl mx-auto px-6">
+      <!-- Logo e descrição -->
       <div class="mb-8">
         <div class="text-4xl mb-4 floating">🔮</div>
         <h3 class="text-2xl font-bold mystic-text mb-4 font-serif-title">A Sincera Bruxa</h3>
         <p class="text-gray-300">Conectando você com os mistérios do universo</p>
       </div>
-      
-      <div id="contato" class="grid md:grid-cols-3 gap-6 mb-8">
-        <div class="flex items-center justify-center">
-          <i class="fas fa-phone text-purple-300 mr-3"></i>
-          <span class="text-gray-300"><strong>Contato:</strong> +55 22 98173-5681</span>
-        </div>
-        <div class="flex items-center justify-center">
-          <i class="fas fa-envelope text-purple-300 mr-3"></i>
-          <span class="text-gray-300"><strong>Email:</strong> luna@mysticatarot.com</span>
-        </div>
-        <div class="flex items-center justify-center">
-          <i class="fab fa-instagram text-purple-300 mr-3"></i>
-          <span class="text-gray-300"><strong>Instagram:</strong> @lunamystica</span>
-        </div>
+  
+      <!-- Redes sociais estilo moderno -->
+      <div class="flex items-center justify-center gap-4 mb-8">
+        <a href="https://www.instagram.com/asincerabruxa?igsh=a2R5czdpbzhjY3E=" target="_blank" 
+           class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-pink-400 
+                  hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:scale-110 
+                  transition-all duration-300">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="mailto:luna@mysticatarot.com" 
+           class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-blue-400 
+                  hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:scale-110 
+                  transition-all duration-300">
+          <i class="fas fa-envelope text-xl"></i>
+        </a>
+        <a href="tel:+5522981735681" 
+           class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-green-400 
+                  hover:bg-gradient-to-r hover:from-green-400 hover:to-blue-400 hover:text-white hover:scale-110 
+                  transition-all duration-300">
+          <i class="fas fa-phone text-xl"></i>
+        </a>
       </div>
-      
+  
+      <!-- Informações adicionais -->
+      <div class="text-gray-400 text-sm mb-8">
+        <p><strong>Contato:</strong> +55 22 98173-5681</p>
+        <p><strong>Email:</strong> luna@mysticatarot.com</p>
+        <p><strong>Instagram:</strong> @asincerabruxa</p>
+      </div>
+  
+      <!-- Direitos autorais -->
       <div class="border-t border-purple-500/30 pt-8">
         <p class="text-gray-300 text-sm">&copy; 2025 A Sincera Bruxa. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
+  
 
   <script src="https://kit.fontawesome.com/4b8b8b8b8b.js" crossorigin="anonymous"></script>
   <script async src="https://www.instagram.com/embed.js"></script>

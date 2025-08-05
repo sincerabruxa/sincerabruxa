@@ -119,4 +119,64 @@ a:hover {
 .btn-mystic:hover {
   background: linear-gradient(45deg, #7c3aed, #9333ea);
   transform: translateY(-2px);
+}
+
+/* Estilos para menu mobile */
+.mobile-menu-item {
+  display: block;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 50%, rgba(124, 58, 237, 0.1) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #f3f4f6;
+}
+
+.mobile-menu-item:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(168, 85, 247, 0.2) 50%, rgba(124, 58, 237, 0.2) 100%);
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: translateX(8px);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.mobile-menu-item:active {
+  transform: translateX(4px) scale(0.98);
+}
+
+/* Animação de entrada do menu mobile */
+#mobile-menu {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
+}
+
+#mobile-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efeito de ripple para botões do menu */
+.mobile-menu-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.mobile-menu-item:active::before {
+  width: 300px;
+  height: 300px;
 } 
