@@ -10,6 +10,30 @@ document.addEventListener('DOMContentLoaded', () => {
     signoSelect.value = '';
   }
 
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    const toggleBackToTop = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const threshold = docHeight * 0.5;
+
+      if (scrollTop > threshold) {
+        backToTop.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-3');
+        backToTop.classList.add('pointer-events-auto');
+      } else {
+        backToTop.classList.add('pointer-events-none', 'opacity-0', 'translate-y-3');
+        backToTop.classList.remove('pointer-events-auto');
+      }
+    };
+
+    toggleBackToTop();
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   if (whatsappForm) {
     whatsappForm.addEventListener('submit', (event) => {
       event.preventDefault();

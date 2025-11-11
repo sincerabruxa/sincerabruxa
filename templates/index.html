@@ -105,10 +105,10 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <div class="floating relative mx-auto max-w-lg rounded-[3rem] border border-purple-400/30 bg-gradient-to-br from-purple-900/20 via-transparent to-pink-500/10 p-10 text-center shadow-[0_30px_80px_-20px_rgba(192,132,252,0.35)]">
+                        <div class="floating relative mx-auto max-w-xl rounded-[3rem] border border-purple-400/30 bg-gradient-to-br from-purple-900/20 via-transparent to-pink-500/10 p-10 text-center shadow-[0_30px_80px_-20px_rgba(192,132,252,0.35)]">
                             <div class="absolute inset-0 -z-10 blur-3xl bg-[radial-gradient(circle_at_top,rgba(192,132,252,0.35),transparent_60%)]"></div>
                             <div class="space-y-6 text-purple-100">
-                                <img src="{{ url_for('static', filename='img/logo1.webp') }}" alt="Logotipo A Sincera Bruxa" class="mx-auto h-32 w-auto select-none drop-shadow-[0_12px_30px_rgba(192,132,252,0.4)]" loading="lazy">
+                                <img src="{{ url_for('static', filename='img/logo1.jpeg') }}" alt="Logotipo A Sincera Bruxa" class="mx-auto w-full max-w-xs select-none drop-shadow-[0_20px_50px_rgba(192,132,252,0.5)] sm:max-w-sm lg:max-w-md" loading="lazy">
                                 <h2 class="font-display text-3xl font-semibold">Tarot que guia com sinceridade</h2>
                                 <p class="text-sm text-purple-100/80">
                                     Conecte-se com mensagens claras, direcionadas e acolhedoras. Cada leitura é feita com respeito à sua história e ao momento que você vive agora.
@@ -235,7 +235,7 @@
                                 Conexão cósmica
                             </span>
                             <h2 class="font-display mt-6 text-3xl font-semibold text-slate-50 sm:text-4xl">Receba a mensagem do universo para o seu signo</h2>
-                            <p class="mt-4 text-base text-slate-300">Escolha seu signo para acessar a leitura diária e semanal atualizada.</p>
+                            <p class="mt-4 text-base text-slate-300">Escolha seu signo para acessar a leitura diária e acompanhe a fase atual da lua.</p>
                         </div>
 
                         <div class="mt-12 rounded-3xl border border-purple-400/30 bg-purple-500/10 p-8 md:p-10">
@@ -275,13 +275,12 @@
                             <article class="tarot-card rounded-[2.5rem] p-8">
                                 <div class="flex items-center justify-between">
                                     <div>
-                                        <p class="text-xs uppercase tracking-[0.4em] text-purple-200/70">Horóscopo semanal</p>
-                                        <h3 class="mt-3 font-display text-2xl font-semibold text-purple-100">Tendências da semana</h3>
+                                        <p class="text-xs uppercase tracking-[0.4em] text-purple-200/70">Fase da lua</p>
+                                        <h3 class="mt-3 font-display text-2xl font-semibold text-purple-100">Ciclo atual</h3>
                                     </div>
-                                    <span class="text-3xl">📅</span>
+                                    <span class="text-3xl">🌙</span>
                                 </div>
-                                <p class="mt-6 text-sm leading-relaxed text-slate-100/90">{{ horoscopo_semanal }}</p>
-                                <p class="mt-8 text-xs uppercase tracking-[0.3em] text-purple-200/70">Fase da lua: <span class="font-semibold text-purple-100">{{ fase_lua }}</span></p>
+                                <p class="mt-6 text-sm leading-relaxed text-slate-100/90">Fase da lua: <span class="font-semibold text-purple-100">{{ fase_lua }}</span></p>
                             </article>
                         </div>
                     </div>
@@ -491,6 +490,41 @@
                                         <p class="flex items-start gap-3">
                                             <span class="text-lg text-purple-200">🕒</span> Atendimento de segunda a sábado. Domingos mediante disponibilidade especial.
                                         </p>
+                                        <div class="flex flex-wrap items-center gap-5 pt-4 text-emerald-300 justify-center sm:justify-start">
+                                            <a href="https://www.instagram.com/asincerabruxa" target="_blank" rel="noopener noreferrer" class="transition hover:text-emerald-200 hover:-translate-y-0.5" aria-label="Instagram">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                                                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm6.25-2.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z"/>
+                                                </svg>
+                                            </a>
+                                            <!-- <a href="https://www.facebook.com/asincerabruxa" target="_blank" rel="noopener noreferrer" class="transition hover:text-emerald-200 hover:-translate-y-0.5" aria-label="Facebook">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                                                    <path d="M13 22v-7h3.5l.5-3H13V9.5A1.5 1.5 0 0 1 14.5 8H17V5h-2.5A4.5 4.5 0 0 0 10 9.5V12H7v3h3v7h3Z"/>
+                                                </svg>
+                                            </a> -->
+                                            <!-- <a href="https://twitter.com/asincerabruxa" target="_blank" rel="noopener noreferrer" class="transition hover:text-emerald-200 hover:-translate-y-0.5" aria-label="X (Twitter)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                                                    <path d="M4 4h4.5L13 11l4.5-7H22l-6.5 9.5L22 20h-4.5L11 13l-4.5 7H2l6.5-9.5L4 4Z"/>
+                                                </svg>
+                                            </a> -->
+                                            <a href="https://www.tiktok.com/@asincerabruxa" target="_blank" rel="noopener noreferrer" class="transition hover:text-emerald-200 hover:-translate-y-0.5" aria-label="TikTok">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                                                    <path d="M16.5 2A6.5 6.5 0 0 0 17 6.5a4.5 4.5 0 0 0 4.5 4.5V14a7 7 0 0 1-4.5-1.5V16a6 6 0 1 1-6-6c.169 0 .335.01.5.026V13a2.5 2.5 0 1 0 2.5 2.5V2h3Z"/>
+                                                </svg>
+                                            </a>
+                                            <a href="https://www.youtube.com/@asincerabruxa" target="_blank" rel="noopener noreferrer" class="transition hover:text-emerald-200 hover:-translate-y-0.5" aria-label="YouTube">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                                                    <path d="M5 5h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Zm6.5 3.5v6l5-3-5-3Z"/>
+                                                </svg>
+                                            </a>
+                                            <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!" target="_blank" rel="noopener noreferrer" class="transition hover:text-emerald-200 hover:-translate-y-0.5" aria-label="WhatsApp">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                                                    <path d="M12 2a9 9 0 0 1 7.129 14.6L19 20.5l-3.952-1.037A9 9 0 1 1 12 2Zm0 2a7 7 0 1 0 0 14c1.05 0 2.049-.23 2.94-.642l.335-.154 2.29.601-.63-2.406.214-.33A7 7 0 0 0 12 4Zm-3.2 3.3c.17-.01.368.002.572.027l.214.03c.18.03.388.16.453.314l.314.748.121.283c.121.283.012.472-.229.68-.23.2-.47.52-.47.52-.157.21-.094.45.138.72l.092.099c.46.51.904.83 1.503 1.12.86.418 1.333.517 1.54.53l.12.005c.283.012.4-.04.584-.217.17-.17.231-.26.357-.445.135-.2.271-.236.464-.157l.082.03 1.274.598c.283.135.464.236.53.376.066.135.066.572-.054.806-.121.23-.564.53-.779.684-.21.145-.474.314-.792.33-.317.01-.635-.012-.965-.033-.33-.022-.699-.117-1.105-.25l-.162-.056c-.506-.177-1.145-.41-1.892-.975-.555-.417-.88-.768-.904-.792-.023-.025-.564-.523-.89-1.192-.33-.656-.436-1.207-.464-1.286-.033-.08-.23-.904.138-1.63.363-.73.9-1.18 1.28-1.305.078-.025.158-.04.236-.046Z"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <figure class="mt-8 overflow-hidden rounded-3xl border border-purple-400/30 bg-gradient-to-br from-purple-900/40 via-slate-900/60 to-slate-950/80 shadow-[0_25px_60px_-25px_rgba(192,132,252,0.35)]">
+                                            <img src="{{ url_for('static', filename='img/logo2.jpeg') }}" alt="Tatïana em consulta, A Sincera Bruxa" class="h-full w-full object-cover">
+                                        </figure>
                                     </div>
                                 </div>
                                 <form method="post" class="glass rounded-3xl p-6 md:p-8" data-whatsapp-form>
@@ -505,6 +539,9 @@
                                         Enviar via WhatsApp
                                         <span>💬</span>
                                     </button>
+                                    <figure class="mt-8 overflow-hidden rounded-3xl border border-purple-400/20 bg-slate-900/60 p-4 shadow-[0_20px_60px_-25px_rgba(192,132,252,0.35)]">
+                                        <img src="{{ url_for('static', filename='img/logo3.jpeg') }}" alt="Logo adicional A Sincera Bruxa" class="w-full rounded-2xl object-cover">
+                                    </figure>
                                 </form>
                             </div>
                         </div>
@@ -526,6 +563,12 @@
             </footer>
         </div>
     </div>
+
+    <button id="back-to-top" type="button" aria-label="Voltar ao topo" class="fixed bottom-20 right-5 z-[9998] flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-slate-900 shadow-lg shadow-purple-500/40 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-300 pointer-events-none opacity-0 translate-y-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6">
+            <path fill="currentColor" d="M12 5.5 5.5 12H10v6h4v-6h4.5L12 5.5Z"/>
+        </svg>
+    </button>
 
     <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20uma%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[9999] flex items-center justify-center rounded-full bg-emerald-500 p-3 text-white shadow-lg shadow-emerald-500/40 transition-transform hover:scale-105 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Contato WhatsApp" class="h-10 w-10" width="40" height="40" loading="lazy">
