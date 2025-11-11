@@ -37,16 +37,34 @@ class Config:
     # Configurações de parcerias
     PARCERIAS = [
         {
-            'nome': 'Casa Mística',
-            'descricao': 'Especialistas em cristais, incensos e produtos místicos para complementar sua jornada espiritual.',
-            'url': 'https://casamistica.com.br',
-            'imagem': 'parcerias.svg'
+            'slug': 'watech',
+            'nome': 'WATech',
+            'tagline': '',
+            'descricao': (
+                "A WAtech conecta negócios místicos ao mundo digital com tecnologia sob medida, design inteligente e suporte dedicado."
+            ),
+            'beneficios': [
+                {'icone': '🌐', 'texto': 'Conectamos sua marca ao mundo digital com soluções tecnológicas personalizadas.'},
+                {'icone': '💡', 'texto': 'Criamos sites, landing pages e lojas virtuais focadas em performance, SEO e conversão.'},
+                {'icone': '🚀', 'texto': 'Tecnologia de ponta, design inteligente e suporte especializado para manter sua presença online atualizada.'},
+                {'icone': '🛍️', 'texto': 'Descubra ferramentas e produtos selecionados em nossa vitrine Amazon oficial.'},
+            ],
+            'badge_label': 'Afiliado Amazon oficial',
+            'url': 'https://www.watechevoce.com.br',
+            'imagem': 'parceria1.png',
+            'cta': 'Quero conhecer a WATech',
+            'amazon_url': 'https://www.watechevoce.com.br/loja',
+            'amazon_cta': 'Visitar nossa loja Amazon oficial'
         },
         {
-            'nome': 'Espaço Zen',
-            'descricao': 'Centro de bem-estar e meditação, oferecendo terapias holísticas e cursos de autoconhecimento.',
-            'url': 'https://espacozensp.com.br',
-            'imagem': 'parcerias.svg'
+            'nome': 'Parceria com A Sincera Bruxa',
+            'descricao': (
+                "Sua marca pode caminhar ao lado da A Sincera Bruxa em experiências que unem espiritualidade, bem-estar e tecnologia. "
+                "Estamos em busca de parceiros que acreditam em conexões verdadeiras e desejam amplificar sua presença digital com uma audiência engajada."
+            ),
+            'url': 'https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20conversar%20sobre%20parcerias.',
+            'imagem': 'parcerias.svg',
+            'cta': 'Iniciar conversa'
         }
     ]
     
@@ -105,8 +123,8 @@ class Config:
         },
         {
             'plataforma': 'TikTok',
-            'url': 'https://www.tiktok.com/@watechevoce/video/7524863455111712006',
-            'embed_id': '7524863455111712006',
+            'url': 'https://www.tiktok.com/@watechevoce/video/7527100479894709509',
+            'embed_id': '7527100479894709509',
             'icone': '🎵',
             'cor': 'from-pink-600 to-purple-600'
         },
@@ -129,4 +147,4 @@ class Config:
     @staticmethod
     def get_signos_select():
         """Retorna lista de signos para o select"""
-        return [(slug, nome) for slug, nome in Config.SIGNOS.items()] 
+        return sorted(((slug, nome) for slug, nome in Config.SIGNOS.items()), key=lambda item: item[1])

@@ -1,455 +1,537 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Sincera Bruxa - Tarot & Espiritualidade</title>
-  <meta name="description" content="Consultas de tarot e orientação espiritual com A Sincera Bruxa. Descubra seu caminho com profissionalismo e sensibilidade." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Sincera Bruxa | Tarot & Orientação Espiritual</title>
+    <meta name="description" content="Consultas de tarot com A Sincera Bruxa. Leia seu horóscopo, saiba a fase da lua e escolha consultas por áudio, vídeo ou curso completo.">
+    <meta name="keywords" content="tarot, horóscopo, consultas espirituais, fase da lua, a sincera bruxa">
+    <meta name="author" content="A Sincera Bruxa">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="A Sincera Bruxa | Tarot & Orientação Espiritual">
+    <meta property="og:description" content="Orientação sincera com tarot, consultas online e previsões personalizadas.">
+    <meta property="og:image" content="{{ url_for('static', filename='img/logo.webp', _external=True) }}">
+    <meta property="og:url" content="{{ url_for('main.index', _external=True) }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A Sincera Bruxa | Tarot & Orientação Espiritual">
+    <meta name="twitter:description" content="Descubra mensagens do tarot, horóscopo diário e consultas online com A Sincera Bruxa.">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="icon" type="image/webp" href="{{ url_for('static', filename='img/logo.webp') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body class="min-h-screen text-gray-100 relative overflow-x-hidden">
-  <!-- Partículas místicas no fundo -->
-  <div id="particles-bg" class="fixed inset-0 -z-10 pointer-events-none"></div>
-  
-  <!-- Header -->
-  <header class="w-full py-6 mystic-gradient shadow-2xl sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex items-center justify-between px-6">
-      <div class="flex items-center space-x-4">
-        <div class="text-4xl floating">🔮</div>
-        <h1 class="text-3xl md:text-4xl font-bold mystic-text font-serif-title text-glow">A Sincera Bruxa</h1>
-      </div>
-      <nav class="hidden md:flex space-x-8 text-sm font-medium">
-        <a href="#horoscopo" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-          <i class="fas fa-star mr-2"></i>Horóscopo
-        </a>
-        <a href="#fase-lua" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-          <i class="fas fa-moon mr-2"></i>Fase da Lua
-        </a>
-        <a href="#sobre" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-          <i class="fas fa-user mr-2"></i>Sobre
-        </a>
-        <a href="#servicos" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-          <i class="fas fa-cards-blank mr-2"></i>Serviços
-        </a>
-        <a href="#contato" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-          <i class="fas fa-envelope mr-2"></i>Contato
-        </a>
-        <a href="#parcerias" class="hover:text-yellow-300 transition-colors duration-300 flex items-center">
-          <i class="fas fa-handshake mr-2"></i>Parcerias
-        </a>
-      </nav>
-             <button id="menu-toggle" class="md:hidden text-yellow-300 text-2xl focus:outline-none p-2 rounded-lg hover:bg-purple-500/20 transition-all duration-300">
-         <i class="fas fa-bars"></i>
-       </button>
+<body class="bg-slate-950 text-slate-100 antialiased">
+    <div class="relative bg-stars min-h-screen overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(217,70,239,0.18),transparent_60%)]"></div>
+        <div class="relative">
+            <header class="w-full">
+                <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-8">
+                    <a href="#inicio" class="flex items-center gap-3 text-slate-100">
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-amber-400 glow ring-2 ring-purple-400/40">
+                            🔮
+                        </span>
+                        <div>
+                            <span class="font-display text-xl font-semibold tracking-wide uppercase">A Sincera Bruxa</span>
+                            <p class="text-xs uppercase tracking-[0.3em] text-purple-200/70">Tarot & Sabedoria</p>
+                        </div>
+                    </a>
+                    <div class="hidden items-center gap-8 text-sm font-medium text-slate-200 md:flex">
+                        <a href="#consultas" class="hover:text-purple-300 transition">Consultas</a>
+                        <a href="#miniaturas" class="hover:text-purple-300 transition">Perguntas</a>
+                        <a href="#horoscopo" class="hover:text-purple-300 transition">Horóscopo</a>
+                        <a href="#pagamento" class="hover:text-purple-300 transition">Pagamentos</a>
+                        <a href="#contato" class="hover:text-purple-300 transition">Contato</a>
+                        <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20minha%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-full border border-purple-400/40 px-4 py-2 text-purple-200 transition hover:bg-purple-500/10">
+                            <span>Agenda agora</span> <span>✨</span>
+                        </a>
+                    </div>
+                    <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="flex h-10 w-10 items-center justify-center rounded-full border border-purple-500/40 text-slate-200 md:hidden focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        <span class="sr-only">Abrir menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </nav>
+                <div id="mobile-menu" class="glass absolute left-0 right-0 top-20 z-50 mx-6 hidden rounded-3xl px-6 py-6 md:hidden">
+                    <nav class="flex flex-col gap-4 text-base text-slate-200">
+                        <a href="#consultas" class="hover:text-purple-300 transition">Consultas</a>
+                        <a href="#miniaturas" class="hover:text-purple-300 transition">Perguntas</a>
+                        <a href="#horoscopo" class="hover:text-purple-300 transition">Horóscopo</a>
+                        <a href="#pagamento" class="hover:text-purple-300 transition">Pagamentos</a>
+                        <a href="#contato" class="hover:text-purple-300 transition">Contato</a>
+                        <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20minha%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-full border border-purple-400/40 px-4 py-3 text-purple-200 transition hover:bg-purple-500/10">
+                            <span>Agenda agora</span> <span>✨</span>
+                        </a>
+                    </nav>
+                </div>
+            </header>
+
+            <main class="relative z-10" id="inicio">
+                <section class="mx-auto flex max-w-6xl flex-col gap-12 px-6 pb-20 pt-8 lg:flex-row lg:items-center lg:px-8">
+                    <div class="flex-1 space-y-8">
+                        <span class="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200/80">
+                            Bem-vinda(o) ao círculo
+                        </span>
+                        <h1 class="font-display text-4xl font-semibold leading-tight text-slate-50 sm:text-5xl lg:text-6xl">
+                            A Sincera Bruxa agradece seu contato.<br>
+                            <span class="text-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-amber-200 bg-clip-text">Como podemos ajudar sua jornada?</span>
+                        </h1>
+                        <p class="max-w-2xl text-lg text-slate-300">
+                            Consultas de tarot honestas, acolhedoras e respeitosas com a sua verdade. Escolha o formato ideal, envie seu comprovante e receba orientações alinhadas ao seu momento.
+                        </p>
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <div class="glass rounded-3xl p-6 shadow-xl">
+                                <p class="text-sm font-medium uppercase tracking-[0.3em] text-purple-200/70">Atendimento</p>
+                                <h3 class="mt-3 text-xl font-semibold text-slate-50">Mediante pagamento antecipado</h3>
+                                <p class="mt-3 text-sm text-slate-300">Agendamento confirmado após envio do comprovante via WhatsApp.</p>
+                            </div>
+                            <div class="glass rounded-3xl p-6 shadow-xl">
+                                <p class="text-sm font-medium uppercase tracking-[0.3em] text-purple-200/70">Formatos</p>
+                                <h3 class="mt-3 text-xl font-semibold text-slate-50">Foto, áudio e vídeo</h3>
+                                <p class="mt-3 text-sm text-slate-300">Perguntas objetivas recebem foto da tiragem e áudio. Consultas completas via chamada de vídeo.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4 sm:flex-row">
+                            <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20minha%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 px-6 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-purple-500/40 transition hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-purple-300">
+                                <span>Agendar agora</span>
+                                <span>✨</span>
+                            </a>
+                            <a href="#consultas" class="inline-flex items-center justify-center gap-2 rounded-full border border-purple-400/40 px-6 py-3 text-base font-semibold text-purple-100 transition hover:bg-purple-500/10 focus:outline-none focus:ring-2 focus:ring-purple-300/60">
+                                Conheça as modalidades
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="floating relative mx-auto max-w-lg rounded-[3rem] border border-purple-400/30 bg-gradient-to-br from-purple-900/20 via-transparent to-pink-500/10 p-10 text-center shadow-[0_30px_80px_-20px_rgba(192,132,252,0.35)]">
+                            <div class="absolute inset-0 -z-10 blur-3xl bg-[radial-gradient(circle_at_top,rgba(192,132,252,0.35),transparent_60%)]"></div>
+                            <div class="space-y-6 text-purple-100">
+                                <img src="{{ url_for('static', filename='img/logo1.webp') }}" alt="Logotipo A Sincera Bruxa" class="mx-auto h-32 w-auto select-none drop-shadow-[0_12px_30px_rgba(192,132,252,0.4)]" loading="lazy">
+                                <h2 class="font-display text-3xl font-semibold">Tarot que guia com sinceridade</h2>
+                                <p class="text-sm text-purple-100/80">
+                                    Conecte-se com mensagens claras, direcionadas e acolhedoras. Cada leitura é feita com respeito à sua história e ao momento que você vive agora.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="consultas" class="relative bg-slate-900/40 py-20">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(192,132,252,0.25),transparent_55%)]"></div>
+                    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
+                        <div class="mx-auto max-w-2xl text-center">
+                            <span class="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200/80">
+                                Consultas guiadas
+                            </span>
+                            <h2 class="font-display mt-6 text-3xl font-semibold text-slate-50 sm:text-4xl">Escolha o formato ideal para suas perguntas</h2>
+                            <p class="mt-4 text-base text-slate-300">Agendamento somente mediante pagamento e envio do comprovante. Escolha abaixo a consulta que mais combina com o seu momento.</p>
+                        </div>
+
+                        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+                            <article class="tarot-card rounded-3xl p-8">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-display text-2xl font-semibold text-purple-100">Perguntas Objetivas</h3>
+                                    <span class="text-3xl">🃏</span>
+                                </div>
+                                <p class="mt-4 text-sm text-slate-300">Receba foto da tiragem + áudio explicativo.</p>
+                                <ul class="mt-6 space-y-2 text-sm text-slate-200/90">
+                                    <li>• 1 pergunta: <span class="font-semibold text-purple-100">R$ 15,00</span></li>
+                                    <li>• 2 perguntas: <span class="font-semibold text-purple-100">R$ 27,00</span></li>
+                                </ul>
+                                <div class="mt-8 rounded-2xl border border-purple-400/30 bg-purple-500/10 p-4 text-xs uppercase tracking-[0.3em] text-purple-200/70">
+                                    Envio em até 24h úteis
+                                </div>
+                            </article>
+
+                            <article class="tarot-card rounded-3xl p-8">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-display text-2xl font-semibold text-purple-100">Consultas em Vídeo</h3>
+                                    <span class="text-3xl">📹</span>
+                                </div>
+                                <p class="mt-4 text-sm text-slate-300">Chamadas de vídeo para mergulhar em uma área da vida por vez.</p>
+                                <ul class="mt-6 space-y-2 text-sm text-slate-200/90">
+                                    <li>• 20 minutos: <span class="font-semibold text-purple-100">R$ 50,00</span></li>
+                                    <li>• 30 minutos: <span class="font-semibold text-purple-100">R$ 70,00</span></li>
+                                    <li>• 1 hora: <span class="font-semibold text-purple-100">R$ 150,00</span></li>
+                                </ul>
+                                <div class="mt-8 rounded-2xl border border-pink-400/30 bg-pink-500/10 p-4 text-xs uppercase tracking-[0.3em] text-pink-200/70">
+                                    Escolha tema: amor, carreira, espiritualidade...
+                                </div>
+                            </article>
+
+                            <article class="tarot-card rounded-3xl p-8">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-display text-2xl font-semibold text-purple-100">Jornada Completa</h3>
+                                    <span class="text-3xl">🌙</span>
+                                </div>
+                                <p class="mt-4 text-sm text-slate-300">Previsão detalhada para os próximos seis meses e formação.</p>
+                                <ul class="mt-6 space-y-2 text-sm text-slate-200/90">
+                                    <li>• Vida completa 6 meses: <span class="font-semibold text-purple-100">R$ 200,00</span></li>
+                                    <li>• Curso Baralho Cigano (com certificado): <span class="font-semibold text-purple-100">R$ 300,00</span></li>
+                                    <li class="text-xs text-slate-400">Curso via grupo no WhatsApp com vídeo aulas.</li>
+                                </ul>
+                                <div class="mt-8 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4 text-xs uppercase tracking-[0.3em] text-amber-200/80">
+                                    Transforme-se com acompanhamento contínuo
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="miniaturas" class="relative py-20">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(56,189,248,0.2),transparent_60%)]"></div>
+                    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
+                        <div class="glass rounded-3xl p-8 md:p-12">
+                            <div class="grid items-center gap-10 lg:grid-cols-[1.2fr,1fr]">
+                                <div>
+                                    <h2 class="font-display text-3xl font-semibold text-slate-50 sm:text-4xl">Como funciona o agendamento</h2>
+                                    <p class="mt-4 text-base text-slate-300">Escolha seu formato, envie uma mensagem pelo WhatsApp informando seu interesse e aguarde o envio dos dados. Após o pagamento, compartilhe o comprovante para garantir o horário.</p>
+                                    <ul class="mt-6 grid gap-4 text-sm text-slate-200/90 md:grid-cols-2">
+                                        <li class="rounded-2xl border border-purple-400/30 bg-purple-500/10 p-4">
+                                            <span class="text-xs uppercase tracking-[0.3em] text-purple-200/70">Passo 1</span>
+                                            <p class="mt-2 font-semibold text-slate-100">Envie mensagem no WhatsApp</p>
+                                        </li>
+                                        <li class="rounded-2xl border border-purple-400/30 bg-purple-500/10 p-4">
+                                            <span class="text-xs uppercase tracking-[0.3em] text-purple-200/70">Passo 2</span>
+                                            <p class="mt-2 font-semibold text-slate-100">Faça o pagamento via Pix ou cartão</p>
+                                        </li>
+                                        <li class="rounded-2xl border border-purple-400/30 bg-purple-500/10 p-4">
+                                            <span class="text-xs uppercase tracking-[0.3em] text-purple-200/70">Passo 3</span>
+                                            <p class="mt-2 font-semibold text-slate-100">Envie o comprovante</p>
+                                        </li>
+                                        <li class="rounded-2xl border border-purple-400/30 bg-purple-500/10 p-4">
+                                            <span class="text-xs uppercase tracking-[0.3em] text-purple-200/70">Passo 4</span>
+                                            <p class="mt-2 font-semibold text-slate-100">Receba sua leitura no horário combinado</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="grid gap-4">
+                                    <div class="rounded-3xl border border-purple-400/40 bg-gradient-to-br from-purple-900/60 via-slate-900/70 to-slate-950/80 p-6 text-sm text-slate-200">
+                                        <h3 class="font-display text-xl font-semibold text-purple-100">Pix para pagamentos</h3>
+                                        <p class="mt-3 text-purple-200/90">📱 Chave: <span class="font-semibold text-purple-100">22981735681</span></p>
+                                        <p class="mt-2 text-purple-200/90">🏦 Nubank - Tatïana</p>
+                                        <p class="mt-2 text-xs text-slate-400">Cartões também são aceitos, consulte via WhatsApp.</p>
+                                    </div>
+                                    <div class="rounded-3xl border border-emerald-400/40 bg-emerald-500/10 p-6 text-sm text-emerald-100">
+                                        <p class="text-xs uppercase tracking-[0.3em] text-emerald-200/70">Contato direto</p>
+                                        <p class="mt-2 text-lg font-semibold text-emerald-50">+55 22 98173-5681</p>
+                                        <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20saber%20sobre%20as%20consultas." target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-medium text-emerald-100 underline decoration-emerald-200/60 decoration-dotted underline-offset-4 hover:text-emerald-200">
+                                            Falar agora no WhatsApp →
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="horoscopo" class="relative bg-slate-900/40 py-20" data-signo-selecionado="{{ 'true' if signo_consulta else 'false' }}">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.18),transparent_55%)]"></div>
+                    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
+                        <div class="mx-auto max-w-3xl text-center">
+                            <span class="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200/80">
+                                Conexão cósmica
+                            </span>
+                            <h2 class="font-display mt-6 text-3xl font-semibold text-slate-50 sm:text-4xl">Receba a mensagem do universo para o seu signo</h2>
+                            <p class="mt-4 text-base text-slate-300">Escolha seu signo para acessar a leitura diária e semanal atualizada.</p>
+                        </div>
+
+                        <div class="mt-12 rounded-3xl border border-purple-400/30 bg-purple-500/10 p-8 md:p-10">
+                            {% if signo_consulta_label %}
+                                <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-300/40 bg-purple-500/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-purple-100">
+                                    Resultados para {{ signo_consulta_label }}
+                                </div>
+                            {% endif %}
+                            <form method="post" class="grid gap-6 md:grid-cols-[2fr,1fr] md:items-end" id="horoscopo-form">
+                                <div>
+                                    <label for="signo" class="block text-sm font-semibold uppercase tracking-[0.4em] text-purple-200/80">Selecione seu signo</label>
+                                    <select name="signo" id="signo" required class="mt-3 w-full rounded-2xl border border-purple-400/40 bg-slate-950/80 px-4 py-3 text-base text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/60">
+                                        <option value="" disabled{% if not signo %} selected{% endif %}>Escolha uma opção</option>
+                                        {% for slug, nome in signos_select %}
+                                            <option value="{{ slug }}">{{ nome }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 px-6 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-purple-500/40 transition hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-purple-300">
+                                    Consultar agora
+                                    <span>🔮</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="mt-12 grid gap-8 lg:grid-cols-[1fr,1fr]">
+                            <article class="tarot-card rounded-[2.5rem] p-8">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-xs uppercase tracking-[0.4em] text-purple-200/70">Horóscopo diário</p>
+                                        <h3 class="mt-3 font-display text-2xl font-semibold text-purple-100">Mensagens do dia</h3>
+                                    </div>
+                                    <span class="text-3xl">🔮</span>
+                                </div>
+                                <p class="mt-6 text-sm leading-relaxed text-slate-100/90">{{ horoscopo_diario }}</p>
+                            </article>
+                            <article class="tarot-card rounded-[2.5rem] p-8">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-xs uppercase tracking-[0.4em] text-purple-200/70">Horóscopo semanal</p>
+                                        <h3 class="mt-3 font-display text-2xl font-semibold text-purple-100">Tendências da semana</h3>
+                                    </div>
+                                    <span class="text-3xl">📅</span>
+                                </div>
+                                <p class="mt-6 text-sm leading-relaxed text-slate-100/90">{{ horoscopo_semanal }}</p>
+                                <p class="mt-8 text-xs uppercase tracking-[0.3em] text-purple-200/70">Fase da lua: <span class="font-semibold text-purple-100">{{ fase_lua }}</span></p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="pagamento" class="relative py-20">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.18),transparent_65%)]"></div>
+                    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
+                        <div class="grid gap-10 lg:grid-cols-[1fr,1.2fr]">
+                            <div class="glass rounded-3xl p-8 text-slate-200 md:p-10">
+                                <h3 class="font-display text-2xl font-semibold text-purple-100">Formas de Pagamento</h3>
+                                <p class="mt-4 text-sm text-slate-300">Envie o comprovante para confirmar seu agendamento.</p>
+                                <ul class="mt-6 space-y-3 text-sm text-slate-200/90">
+                                    <li class="flex items-start gap-3">
+                                        <span class="mt-1 text-lg text-purple-200">✨</span>
+                                        <p>Pix: <span class="font-semibold text-purple-100">22981735681</span> — Nubank Tatïana</p>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="mt-1 text-lg text-purple-200">💳</span>
+                                        <p>Cartão: consulte taxas e opções via WhatsApp.</p>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="mt-1 text-lg text-purple-200">🗓️</span>
+                                        <p>Agenda flexível mediante confirmação do pagamento.</p>
+                                    </li>
+                                </ul>
+                                <div class="mt-8 rounded-3xl border border-purple-400/40 bg-purple-500/10 p-6 text-sm text-slate-200">
+                                    <p class="text-xs font-semibold uppercase tracking-[0.35em] text-purple-200/70">Importante</p>
+                                    <p class="mt-3 text-sm text-slate-200/90">Para agilizar o agendamento, envie estas informações junto com o comprovante:</p>
+                                    <ul class="mt-4 space-y-2 text-sm text-slate-200/80">
+                                        <li class="flex gap-2">
+                                            <span class="mt-0.5 text-purple-200">➤</span>
+                                            <span>Nome completo e data de nascimento.</span>
+                                        </li>
+                                        <li class="flex gap-2">
+                                            <span class="mt-0.5 text-purple-200">➤</span>
+                                            <span>Tema principal ou perguntas da consulta.</span>
+                                        </li>
+                                        <li class="flex gap-2">
+                                            <span class="mt-0.5 text-purple-200">➤</span>
+                                            <span>Melhor período para receber a leitura.</span>
+                                        </li>
+                                    </ul>
+                                    <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20confirmar%20meu%20pagamento%20e%20enviar%20os%20dados." target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-purple-100 transition hover:bg-purple-500/30 focus:outline-none focus:ring-2 focus:ring-purple-400/60">
+                                        Mais informações no WhatsApp
+                                        <span>💬</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="rounded-3xl border border-purple-400/30 bg-slate-900/70 p-8 md:p-10">
+                                <div class="mx-auto max-w-2xl">
+                                    <h3 class="font-display text-2xl font-semibold text-slate-100">Depoimentos que iluminam</h3>
+                                    <p class="mt-3 text-sm text-slate-300">Veja o que quem já consultou com A Sincera Bruxa tem a dizer:</p>
+                                    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+                                        {% for depoimento in depoimentos %}
+                                            <blockquote class="rounded-3xl border border-purple-400/20 bg-purple-500/10 p-6 text-sm text-slate-200">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-purple-500/20 text-lg font-semibold text-purple-100">
+                                                        {{ depoimento.inicial }}
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-medium text-purple-100">{{ depoimento.nome }}</p>
+                                                        <div class="flex items-center gap-1 text-[11px] text-amber-200">
+                                                            {% for _ in range(depoimento.estrelas) %}
+                                                                <span aria-hidden="true">⭐</span>
+                                                            {% endfor %}
+                                                            <span class="sr-only">{{ depoimento.estrelas }} estrelas</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="mt-4 text-sm italic text-slate-200/90">{{ depoimento.texto }}</p>
+                                            </blockquote>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="parcerias" class="relative bg-slate-900/30 py-20">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(192,132,252,0.18),transparent_65%)]"></div>
+                    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
+                        <div class="mx-auto max-w-3xl text-center">
+                            <span class="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200/80">
+                                Nossos parceiros
+                            </span>
+                            <h2 class="font-display mt-6 text-3xl font-semibold text-slate-50 sm:text-4xl">Alianças que compartilham nossa magia</h2>
+                            <p class="mt-4 text-base text-slate-300">Empresas e projetos que vibram na mesma energia e oferecem experiências que complementam sua jornada.</p>
+                        </div>
+
+                        <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                            {% for parceria in parcerias %}
+                                {% if parceria.get('slug') == 'watech' %}
+                                    <article class="group relative flex flex-col gap-8 rounded-[2.5rem] border border-purple-400/30 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-10 text-slate-100 shadow-[0_30px_70px_-25px_rgba(88,28,135,0.55)] transition hover:-translate-y-2 hover:shadow-[0_35px_90px_-20px_rgba(99,102,241,0.55)]">
+                                        <div class="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
+                                            <!-- Logo WAtech sem moldura para melhor legibilidade em todas as telas -->
+                                            <img src="{{ url_for('static', filename='img/' + parceria.imagem) }}" alt="{{ parceria.nome }}" class="h-24 w-auto flex-shrink-0 select-none drop-shadow-[0_15px_30px_rgba(56,189,248,0.35)] sm:h-28 lg:h-32">
+                                            <div class="flex flex-col gap-3">
+                                                <span class="inline-flex items-center gap-2">
+                                                    <span class="rounded-full border border-amber-400/40 bg-amber-500/10 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-amber-200/80">{{ parceria.get('badge_label', 'Afiliado oficial') }}</span>
+                                                </span>
+                                                <h3 class="font-display text-3xl font-semibold text-slate-50">{{ parceria.nome }}</h3>
+                                            </div>
+                                        </div>
+                                        <div class="space-y-3 text-sm leading-relaxed text-slate-200">
+                                            {% for beneficio in parceria.get('beneficios', []) %}
+                                                <div class="flex gap-3">
+                                                    <span class="mt-0.5 text-base">{{ beneficio.icone }}</span>
+                                                    <p>{{ beneficio.texto }}</p>
+                                                </div>
+                                            {% endfor %}
+                                            {% if not parceria.get('beneficios') and parceria.descricao %}
+                                                <p>{{ parceria.descricao }}</p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="flex flex-col gap-4">
+                                            {% if parceria.get('amazon_url') %}
+                                                <a href="{{ parceria.get('amazon_url') }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between gap-2 rounded-2xl border border-amber-400/40 bg-amber-500/10 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-300/60 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200">
+                                                    {{ parceria.get('amazon_cta', 'Visitar nossa loja oficial') }}
+                                                    <svg class="h-4 w-4 flex-none" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                        <path d="M7 17L17 7M9 7H17V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </a>
+                                            {% endif %}
+                                            <div class="flex flex-wrap items-center gap-6">
+                                                <a href="{{ parceria.url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-400 to-fuchsia-500 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-indigo-500/30 transition hover:translate-y-0.5 hover:shadow-indigo-500/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300">
+                                                    {{ parceria.get('cta', 'Conheça mais') }}
+                                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                        <path d="M7 17L17 7M9 7H17V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </a>
+                                                <button type="button" class="text-xs font-medium uppercase tracking-[0.2em] text-indigo-200 transition hover:text-indigo-100">Ver cases recentes</button>
+                                            </div>
+                                        </div>
+                                        <div class="pointer-events-none absolute inset-0 rounded-[2.5rem] border border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"></div>
+                                    </article>
+                                {% else %}
+                                    <article class="group rounded-[2.5rem] border border-purple-400/25 bg-gradient-to-br from-purple-900/25 via-slate-950/70 to-slate-950/80 p-8 text-slate-100 shadow-[0_30px_60px_-25px_rgba(147,51,234,0.4)] transition hover:-translate-y-2 hover:shadow-[0_35px_80px_-20px_rgba(168,85,247,0.45)]">
+                                        <div class="flex items-center justify-between">
+                                            <div class="rounded-2xl bg-slate-950/60 p-4 shadow-inner">
+                                                <img src="{{ url_for('static', filename='img/' + parceria.imagem) }}" alt="{{ parceria.nome }}" class="h-16 w-16 object-contain drop-shadow-[0_6px_16px_rgba(56,189,248,0.35)]">
+                                            </div>
+                                            <span class="rounded-full border border-purple-400/20 bg-purple-500/10 px-3 py-1 text-xs uppercase tracking-[0.3em] text-purple-200/70">
+                                                Em sintonia
+                                            </span>
+                                        </div>
+                                        <h3 class="mt-6 font-display text-2xl font-semibold text-purple-100">{{ parceria.nome }}</h3>
+                                        <p class="mt-4 text-sm leading-relaxed text-slate-200/90">{{ parceria.descricao }}</p>
+                                        <a href="{{ parceria.url }}" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-gradient-to-r from-purple-500/20 via-purple-500/10 to-amber-400/10 px-5 py-3 text-sm font-semibold text-purple-100 transition hover:bg-purple-500/30 focus:outline-none focus:ring-2 focus:ring-purple-400/60">
+                                            {{ parceria.get('cta', 'Conheça mais') }}
+                                            <span>→</span>
+                                        </a>
+                                    </article>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tiktok" class="relative bg-slate-900/40 py-20">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(34,197,94,0.2),transparent_60%)]"></div>
+                    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
+                        <div class="grid gap-10 lg:grid-cols-[1.2fr,1fr]">
+                            <div class="space-y-6">
+                                <span class="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200/80">
+                                    Redes & conteúdos
+                                </span>
+                                <h2 class="font-display mt-6 text-3xl font-semibold text-slate-50 sm:text-4xl">Siga a energia</h2>
+                                <p class="mt-4 text-base text-slate-300">Acompanhe tiragens, conselhos diários e conteúdos exclusivos no TikTok.</p>
+                                <a href="https://vm.tiktok.com/ZMSETtvGt/" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-3 rounded-full border border-purple-400/40 bg-purple-500/10 px-5 py-3 text-sm font-semibold text-purple-100 transition hover:bg-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-400/50">
+                                    Ver perfil no TikTok
+                                    <span>→</span>
+                                </a>
+                                <p class="text-xs uppercase tracking-[0.25em] text-purple-200/60">Se o vídeo não carregar, acesse pelo botão acima.</p>
+                            </div>
+                            <div class="flex justify-center">
+                                <!-- Player TikTok compacto para manter proporção mobile-first -->
+                                <div class="w-full max-w-xs rounded-[2.25rem] border border-purple-400/30 bg-slate-900/70 p-5 shadow-[0_20px_50px_-20px_rgba(56,189,248,0.35)]">
+                                    <div class="aspect-[9/16] w-full overflow-hidden rounded-[1.75rem] border border-purple-400/30 bg-black/30">
+                                        <iframe src="https://www.tiktok.com/embed/v2/?lang=pt-BR&author=asincerabruxa&video_id=ZMSETtvGt" title="TikTok A Sincera Bruxa" allow="fullscreen; autoplay" loading="lazy" class="h-full w-full rounded-[1.75rem]"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contato" class="relative py-20">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(244,114,182,0.15),transparent_60%)]"></div>
+                    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
+                        <div class="rounded-3xl border border-purple-400/30 bg-slate-900/70 p-8 md:p-12">
+                            <div class="grid gap-10 lg:grid-cols-[1fr,1.1fr]">
+                                <div>
+                                    <h2 class="font-display text-3xl font-semibold text-slate-50 sm:text-4xl">Vamos conversar</h2>
+                                    <p class="mt-4 text-base text-slate-300">Envie sua mensagem com o tema desejado, dados de nascimento e disponibilidade. Retorno em até 24h úteis.</p>
+                                    <div class="mt-8 space-y-5 text-sm text-slate-200/90">
+                                        <p class="flex items-center gap-3">
+                                            <span class="text-lg text-purple-200">📞</span> +55 22 98173-5681
+                                        </p>
+                                        <p class="flex items-center gap-3">
+                                            <span class="text-lg text-purple-200">📧</span> asincerabruxa@gmail.com
+                                        </p>
+                                        <p class="flex items-center gap-3">
+                                            <span class="text-lg text-purple-200">📍</span> Atendimentos on-line para todo o Brasil
+                                        </p>
+                                        <p class="flex items-start gap-3">
+                                            <span class="text-lg text-purple-200">🕒</span> Atendimento de segunda a sábado. Domingos mediante disponibilidade especial.
+                                        </p>
+                                    </div>
+                                </div>
+                                <form method="post" class="glass rounded-3xl p-6 md:p-8" data-whatsapp-form>
+                                    <p class="text-sm uppercase tracking-[0.35em] text-purple-200/70">Mensagem rápida</p>
+                                    <h3 class="mt-3 text-xl font-semibold text-slate-100">Compartilhe seu nome, pergunta e melhor horário.</h3>
+                                    <div class="mt-6 grid gap-4">
+                                        <input type="text" name="nome" placeholder="Seu nome completo" class="w-full rounded-2xl border border-purple-400/30 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/70" required>
+                                        <input type="text" name="tema" placeholder="Tema da consulta (amor, carreira, etc.)" class="w-full rounded-2xl border border-purple-400/30 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/70" required>
+                                        <textarea name="mensagem" rows="4" placeholder="Sua pergunta ou objetivo + disponibilidade" class="w-full rounded-2xl border border-purple-400/30 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/70" required></textarea>
+                                    </div>
+                                    <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 px-6 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-purple-500/40 transition hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-purple-300">
+                                        Enviar via WhatsApp
+                                        <span>💬</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="relative border-t border-purple-500/20 bg-slate-950/80">
+                <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+                    <p>© {{ current_year | default(2025) }} A Sincera Bruxa. Todos os direitos reservados.</p>
+                    <div class="flex flex-wrap items-center gap-5">
+                        <a href="#consultas" class="hover:text-purple-200 transition">Modalidades</a>
+                        <a href="#horoscopo" class="hover:text-purple-200 transition">Horóscopo</a>
+                        <a href="#pagamento" class="hover:text-purple-200 transition">Pagamentos</a>
+                        <a href="#contato" class="hover:text-purple-200 transition">Contato</a>
+                    </div>
+                    <p class="text-xs uppercase tracking-[0.35em] text-purple-200/70">Desenvolvido por <a href="https://www.watechevoce.com.br" target="_blank" rel="noopener noreferrer" class="font-semibold text-purple-100 hover:text-purple-50 transition">WATech</a></p>
+                </div>
+            </footer>
+        </div>
     </div>
-    
-    <div id="mobile-menu" 
-    class="md:hidden fixed inset-0 bg-black/70 backdrop-blur-2xl z-50 
-           flex flex-col items-center justify-center space-y-6 
-           text-xl font-medium hidden opacity-0 scale-95 
-           transition-all duration-300 ease-in-out">
- 
- <!-- Header -->
- <div class="absolute top-0 left-0 right-0 p-6 flex items-center justify-between border-b border-purple-500/30">
-   <div class="flex items-center space-x-3">
-     <div class="text-2xl">🔮</div>
-     <span class="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-       Menu
-     </span>
-   </div>
-   <button id="menu-close" aria-label="Fechar menu" 
-           class="text-3xl text-purple-300 hover:text-yellow-300 transition-colors duration-300">
-     <i class="fas fa-times"></i>
-   </button>
- </div>
 
- <!-- Links -->
- <nav class="flex flex-col space-y-4 w-full max-w-sm px-6">
-   <a href="#horoscopo" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:border-white/40 hover:shadow-lg">
-     <i class="fas fa-star text-yellow-400"></i>
-     <span>Horóscopo</span>
-   </a>
+    <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20uma%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[9999] flex items-center justify-center rounded-full bg-emerald-500 p-3 text-white shadow-lg shadow-emerald-500/40 transition-transform hover:scale-105 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Contato WhatsApp" class="h-10 w-10" width="40" height="40" loading="lazy">
+    </a>
 
-   <a href="#fase-lua" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:border-white/40 hover:shadow-lg">
-     <i class="fas fa-moon text-blue-400"></i>
-     <span>Fase da Lua</span>
-   </a>
-
-   <a href="#sobre" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 hover:border-white/40 hover:shadow-lg">
-     <i class="fas fa-user text-purple-400"></i>
-     <span>Sobre</span>
-   </a>
-
-   <a href="#servicos" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 hover:border-white/40 hover:shadow-lg">
-     <i class="fas fa-cards-blank text-pink-400"></i>
-     <span>Serviços</span>
-   </a>
-
-   <a href="#midias" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-green-400 hover:to-blue-400 hover:border-white/40 hover:shadow-lg">
-     <i class="fas fa-share-alt text-green-400"></i>
-     <span>Mídias Sociais</span>
-   </a>
-
-   <a href="#contato" class="flex items-center justify-center gap-3 text-white rounded-2xl bg-white/5 border border-white/20 backdrop-blur-lg py-4 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-red-500 hover:to-pink-500 hover:border-white/40 hover:shadow-lg">
-     <i class="fas fa-envelope text-red-400"></i>
-     <span>Contato</span>
-   </a>
- </nav>
-
- <!-- Footer -->
- <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-purple-500/30 text-center">
-   <p class="text-sm text-gray-400 mb-2">A Sincera Bruxa</p>
-   <p class="text-xs text-gray-500">Conectando você com os mistérios</p>
- </div>
-</div>
-
-
-  </header>
-
-  <!-- Hero Section -->
-  <section class="min-h-screen flex items-center justify-center pt-20">
-    <div class="text-center max-w-4xl mx-auto px-6">
-      <div class="text-8xl mb-8 floating">🔮</div>
-      <h2 class="text-5xl md:text-7xl font-bold mystic-text mb-6 text-glow font-serif-title">
-        Descubra os Mistérios do Universo
-      </h2>
-      <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-        Através do tarot e da espiritualidade, encontre clareza e direção em sua jornada
-      </p>
-      <div class="flex flex-col md:flex-row gap-4 justify-center">
-        <a href="#horoscopo" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-8 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 card-glow">
-          <i class="fas fa-star mr-2"></i>Consultar Horóscopo
-        </a>
-        <a href="#servicos" class="border-2 border-purple-500 text-purple-300 font-bold py-4 px-8 rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300">
-          <i class="fas fa-cards-blank mr-2"></i>Ver Serviços
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Horóscopo Section -->
-  <section id="horoscopo" class="max-w-4xl mx-auto mt-20 px-6 fade-section opacity-0 translate-y-8 transition-all duration-700">
-    <div class="crystal-bg rounded-2xl shadow-2xl p-8 card-glow">
-      <div class="text-center mb-8">
-        <div class="text-6xl mb-4">✨</div>
-        <h2 class="text-4xl font-bold mystic-text mb-4 font-serif-title">Descubra seu Horóscopo</h2>
-        <p class="text-gray-300 text-lg">Escolha seu signo e descubra as mensagens que o universo tem para você hoje</p>
-      </div>
-      
-      <form id="horoscopoForm" class="flex flex-col gap-6 max-w-md mx-auto">
-        <div>
-          <label for="signo" class="text-lg font-semibold text-purple-300 mb-3 block">
-            <i class="fas fa-star mr-2"></i>Escolha seu signo:
-          </label>
-          <select name="signo" id="signo" class="w-full text-black p-4 rounded-lg border-2 border-purple-500 focus:border-purple-400 focus:outline-none bg-white">
-            <option value="">Selecione seu signo</option>
-            {% for slug, nome in signos_select %}
-              <option value="{{ slug }}">{{ nome }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <button type="submit" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 card-glow">
-          <i class="fas fa-magic mr-2"></i>Consultar
-        </button>
-      </form>
-      
-      <div id="resultado-horoscopo" class="mt-8">
-        <div class="text-center">
-          <div class="text-4xl mb-4">🔮</div>
-          <p class="text-gray-300 text-lg">Selecione um signo para ver a previsão.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fase da Lua Section -->
-  <section id="fase-lua" class="max-w-4xl mx-auto mt-20 px-6 fade-section opacity-0 translate-y-8 transition-all duration-700">
-    <div class="crystal-bg rounded-2xl shadow-2xl p-8 card-glow">
-      <div class="text-center">
-        <div class="text-6xl mb-4 floating">🌙</div>
-        <h2 class="text-3xl font-bold mystic-text mb-4 font-serif-title">Fase Atual da Lua</h2>
-        <div class="text-2xl text-purple-300 font-medium">{{ fase_lua }}</div>
-        <p class="text-gray-300 mt-4">A lua influencia nossas energias e emoções. Conecte-se com seu poder místico.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre Section -->
-  <section id="sobre" class="max-w-6xl mx-auto mt-20 px-6 fade-section opacity-0 translate-y-8 transition-all duration-700">
-    <div class="crystal-bg rounded-2xl shadow-2xl p-12 card-glow">
-      <div class="text-center mb-12">
-        <div class="text-6xl mb-6 floating">🔮</div>
-        <h2 class="text-4xl font-bold mystic-text mb-6 font-serif-title">Sobre A Sincera Bruxa</h2>
-      </div>
-      
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p class="text-xl text-gray-200 leading-relaxed mb-6">
-            Com mais de 10 anos de experiência em tarologia e espiritualidade, dedico-me a ajudar pessoas a encontrarem clareza e direção em suas vidas.
-          </p>
-          <p class="text-lg text-gray-300 leading-relaxed mb-6">
-            Através do tarot, conecto-me com as energias do universo para trazer orientação e insights que podem transformar sua jornada.
-          </p>
-          <div class="flex items-center space-x-4 text-purple-300">
-            <div class="flex items-center">
-              <i class="fas fa-star text-yellow-400 mr-2"></i>
-              <span>10+ anos de experiência</span>
-            </div>
-            <div class="flex items-center">
-              <i class="fas fa-users text-yellow-400 mr-2"></i>
-              <span>+500 consultas realizadas</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="text-center">
-          <div class="text-8xl floating">✨</div>
-          <div class="mt-6">
-            <div class="grid grid-cols-3 gap-4 text-center">
-              <div class="crystal-bg rounded-lg p-4">
-                <div class="text-2xl mb-2">🔮</div>
-                <div class="text-sm text-purple-300">Tarot</div>
-              </div>
-              <div class="crystal-bg rounded-lg p-4">
-                <div class="text-2xl mb-2">✨</div>
-                <div class="text-sm text-purple-300">Espiritualidade</div>
-              </div>
-              <div class="crystal-bg rounded-lg p-4">
-                <div class="text-2xl mb-2">🌙</div>
-                <div class="text-sm text-purple-300">Lua</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Serviços Section -->
-  <section id="servicos" class="max-w-6xl mx-auto mt-20 px-6 fade-section opacity-0 translate-y-8 transition-all duration-700">
-    <div class="text-center mb-12">
-      <div class="text-6xl mb-6 floating">🃏</div>
-      <h2 class="text-4xl font-bold mystic-text mb-6 font-serif-title">Serviços Espirituais</h2>
-      <p class="text-xl text-gray-300">Escolha o tipo de consulta que melhor atende suas necessidades</p>
-    </div>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="crystal-bg rounded-2xl p-8 text-center card-glow hover:scale-105 transition-transform duration-300">
-        <div class="text-6xl mb-6 floating">🃏</div>
-        <h3 class="text-2xl font-bold mystic-text mb-4">Tarot Completo</h3>
-        <p class="text-gray-200 mb-6 leading-relaxed">Leitura completa com 21 cartas para visão geral da sua vida atual e futura. Uma jornada profunda através dos arcanos.</p>
-        <div class="text-3xl font-bold mystic-text mb-6">R$ 89</div>
-        <a href="#contato" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-6 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 card-glow">
-          <i class="fas fa-calendar mr-2"></i>Agendar
-        </a>
-      </div>
-      
-      <div class="crystal-bg rounded-2xl p-8 text-center card-glow hover:scale-105 transition-transform duration-300">
-        <div class="text-6xl mb-6 floating">💝</div>
-        <h3 class="text-2xl font-bold mystic-text mb-4">Amor & Relacionamentos</h3>
-        <p class="text-gray-200 mb-6 leading-relaxed">Foco específico em questões amorosas, relacionamentos e vida afetiva. Descubra os caminhos do coração.</p>
-        <div class="text-3xl font-bold mystic-text mb-6">R$ 65</div>
-        <a href="#contato" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-6 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 card-glow">
-          <i class="fas fa-calendar mr-2"></i>Agendar
-        </a>
-      </div>
-      
-      <div class="crystal-bg rounded-2xl p-8 text-center card-glow hover:scale-105 transition-transform duration-300">
-        <div class="text-6xl mb-6 floating">💼</div>
-        <h3 class="text-2xl font-bold mystic-text mb-4">Carreira & Finanças</h3>
-        <p class="text-gray-200 mb-6 leading-relaxed">Orientação para decisões profissionais e questões financeiras importantes. Alinhe seu propósito com o sucesso.</p>
-        <div class="text-3xl font-bold mystic-text mb-6">R$ 65</div>
-        <a href="#contato" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-6 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 card-glow">
-          <i class="fas fa-calendar mr-2"></i>Agendar
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Depoimentos Section -->
-  <section class="max-w-6xl mx-auto mt-20 px-6 fade-section opacity-0 translate-y-8 transition-all duration-700">
-    <div class="text-center mb-12">
-      <div class="text-6xl mb-6 floating">⭐</div>
-      <h2 class="text-4xl font-bold mystic-text mb-6 font-serif-title">O que dizem sobre mim</h2>
-      <p class="text-xl text-gray-300">Testemunhos de quem já descobriu os mistérios do tarot</p>
-    </div>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="crystal-bg rounded-2xl p-6 card-glow hover:scale-105 transition-transform duration-300">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg">M</div>
-          <div class="ml-4">
-            <div class="font-bold text-purple-300">Maria Silva</div>
-            <div class="text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
-          </div>
-        </div>
-        <p class="text-gray-200 text-sm leading-relaxed">"Leitura incrível! Luna me ajudou a entender questões que eu carregava há anos. Recomendo muito!"</p>
-      </div>
-      
-      <div class="crystal-bg rounded-2xl p-6 card-glow hover:scale-105 transition-transform duration-300">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg">J</div>
-          <div class="ml-4">
-            <div class="font-bold text-purple-300">João Santos</div>
-            <div class="text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
-          </div>
-        </div>
-        <p class="text-gray-200 text-sm leading-relaxed">"Consulta muito esclarecedora sobre minha carreira. As orientações foram fundamentais para minha decisão."</p>
-      </div>
-      
-      <div class="crystal-bg rounded-2xl p-6 card-glow hover:scale-105 transition-transform duration-300">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg">A</div>
-          <div class="ml-4">
-            <div class="font-bold text-purple-300">Ana Costa</div>
-            <div class="text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
-          </div>
-        </div>
-        <p class="text-gray-200 text-sm leading-relaxed">"Luna tem uma sensibilidade única. Suas leituras são sempre certeiras e transformadoras."</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mídias Sociais Section -->
-  <section id="midias" class="max-w-6xl mx-auto mt-20 px-6 fade-section opacity-0 translate-y-8 transition-all duration-700">
-    <div class="text-center mb-12">
-      <div class="text-6xl mb-6 floating">📱</div>
-      <h2 class="text-4xl font-bold mystic-text mb-6 font-serif-title">Mídias Sociais</h2>
-      <p class="text-xl text-gray-300">Acompanhe meu trabalho e descubra mais sobre espiritualidade</p>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- YouTube -->
-      <div class="crystal-bg rounded-2xl shadow-2xl overflow-hidden card-glow">
-        <div class="w-full aspect-video bg-black flex items-center justify-center relative">
-          <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/sc1RIX0RZBo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl mb-2">📺</div>
-          <span class="font-semibold text-lg mystic-text">YouTube</span>
-          <a href="https://www.youtube.com/watch?v=sc1RIX0RZBo" target="_blank" rel="noopener" class="mt-4 inline-block bg-gradient-to-r from-red-600 to-red-700 text-white font-bold py-2 px-4 rounded-full hover:from-red-700 hover:to-red-800 transition-all duration-300">
-            <i class="fab fa-youtube mr-2"></i>Visualizar
-          </a>
-        </div>
-      </div>
-      
-      <!-- TikTok -->
-      <div class="crystal-bg rounded-2xl shadow-2xl overflow-hidden card-glow">
-        <div class="w-full aspect-video bg-black flex items-center justify-center relative">
-          <blockquote class='tiktok-embed w-full h-full' cite='https://www.tiktok.com/@watechevoce/video/7524863455111712006' data-video-id='7524863455111712006' style='width:100%; height:100%; min-height:0;'><section></section></blockquote>
-        </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl mb-2">🎵</div>
-          <span class="font-semibold text-lg mystic-text">TikTok</span>
-          <a href="https://www.tiktok.com/@watechevoce/video/7524863455111712006" target="_blank" rel="noopener" class="mt-4 inline-block bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold py-2 px-4 rounded-full hover:from-pink-700 hover:to-purple-700 transition-all duration-300">
-            <i class="fab fa-tiktok mr-2"></i>Visualizar
-          </a>
-        </div>
-      </div>
-      
-      <!-- Instagram -->
-      <div class="crystal-bg rounded-2xl shadow-2xl overflow-hidden card-glow">
-        <div class="w-full aspect-video bg-black flex items-center justify-center relative">
-          <blockquote class='instagram-media w-full h-full' data-instgrm-permalink='https://www.instagram.com/reel/DI22kizqeNK/?utm_source=ig_embed' data-instgrm-version='14' style='width:100%; height:100%; min-height:0;'><a href='https://www.instagram.com/reel/DI22kizqeNK/?utm_source=ig_embed' target='_blank'>Veja o post no Instagram</a></blockquote>
-        </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl mb-2">📸</div>
-          <span class="font-semibold text-lg mystic-text">Instagram</span>
-          <a href="https://www.instagram.com/reel/DI22kizqeNK/?utm_source=ig_embed" target="_blank" rel="noopener" class="mt-4 inline-block bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold py-2 px-4 rounded-full hover:from-pink-700 hover:to-purple-700 transition-all duration-300">
-            <i class="fab fa-instagram mr-2"></i>Visualizar
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Parcerias Section -->
-  <section id="parcerias" class="max-w-6xl mx-auto mt-20 px-6 fade-section opacity-0 translate-y-8 transition-all duration-700">
-    <div class="text-center mb-12">
-      <div class="text-6xl mb-6 floating">🤝</div>
-      <h2 class="text-4xl font-bold mystic-text mb-6 font-serif-title">Nossas Parcerias</h2>
-      <p class="text-xl text-gray-300">Conectando-se com parceiros que compartilham nossa visão espiritual</p>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Parceria 1 -->
-      <div class="crystal-bg rounded-2xl p-8 text-center card-glow hover:scale-105 transition-transform duration-300">
-        <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-          <img src="{{ url_for('static', filename='img/parcerias.svg') }}" alt="Logo Parceria 1" class="w-16 h-16 object-contain">
-        </div>
-        <h3 class="text-2xl font-bold mystic-text mb-4">Casa Mística</h3>
-        <p class="text-gray-200 mb-6 leading-relaxed">Especialistas em cristais, incensos e produtos místicos para complementar sua jornada espiritual.</p>
-        <a href="https://casamistica.com.br" target="_blank" rel="noopener" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-6 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300">
-          <i class="fas fa-external-link-alt mr-2"></i>Visitar Site
-        </a>
-      </div>
-      
-      <!-- Parceria 2 -->
-      <div class="crystal-bg rounded-2xl p-8 text-center card-glow hover:scale-105 transition-transform duration-300">
-        <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-          <img src="{{ url_for('static', filename='img/parcerias.svg') }}" alt="Logo Parceria 2" class="w-16 h-16 object-contain">
-        </div>
-        <h3 class="text-2xl font-bold mystic-text mb-4">Espaço Zen</h3>
-        <p class="text-gray-200 mb-6 leading-relaxed">Centro de bem-estar e meditação, oferecendo terapias holísticas e cursos de autoconhecimento.</p>
-        <a href="https://espacozensp.com.br" target="_blank" rel="noopener" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-6 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300">
-          <i class="fas fa-external-link-alt mr-2"></i>Visitar Site
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="w-full mt-20 mystic-gradient text-center py-12">
-    <div class="max-w-4xl mx-auto px-6">
-      <!-- Logo e descrição -->
-      <div class="mb-8">
-        <div class="text-4xl mb-4 floating">🔮</div>
-        <h3 class="text-2xl font-bold mystic-text mb-4 font-serif-title">A Sincera Bruxa</h3>
-        <p class="text-gray-300">Conectando você com os mistérios do universo</p>
-      </div>
-  
-      <!-- Redes sociais estilo moderno -->
-      <div class="flex items-center justify-center gap-4 mb-8">
-        <a href="https://www.instagram.com/asincerabruxa?igsh=a2R5czdpbzhjY3E=" target="_blank" 
-           class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-pink-400 
-                  hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:scale-110 
-                  transition-all duration-300">
-          <i class="fab fa-instagram text-xl"></i>
-        </a>
-        <a href="mailto:luna@mysticatarot.com" 
-           class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-blue-400 
-                  hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:scale-110 
-                  transition-all duration-300">
-          <i class="fas fa-envelope text-xl"></i>
-        </a>
-        <a href="tel:+5522981735681" 
-           class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-green-400 
-                  hover:bg-gradient-to-r hover:from-green-400 hover:to-blue-400 hover:text-white hover:scale-110 
-                  transition-all duration-300">
-          <i class="fas fa-phone text-xl"></i>
-        </a>
-      </div>
-  
-      <!-- Informações adicionais -->
-      <div class="text-gray-400 text-sm mb-8">
-        <p><strong>Contato:</strong> +55 22 98173-5681</p>
-        <p><strong>Email:</strong> luna@mysticatarot.com</p>
-        <p><strong>Instagram:</strong> @asincerabruxa</p>
-      </div>
-  
-      <!-- Direitos autorais -->
-      <div class="border-t border-purple-500/30 pt-8">
-        <p class="text-gray-300 text-sm">&copy; 2025 A Sincera Bruxa. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </footer>
-  
-
-  <script src="https://kit.fontawesome.com/4b8b8b8b8b.js" crossorigin="anonymous"></script>
-  <script async src="https://www.instagram.com/embed.js"></script>
-  <script async src="https://www.tiktok.com/embed.js"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
 </body>
 </html>

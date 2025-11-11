@@ -1,182 +1,52 @@
-/* Estilos base */
-body { 
-  font-family: 'Inter', sans-serif; 
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
-  background-attachment: fixed;
+:root {
+  color-scheme: dark;
 }
 
-h1, h2, h3, h4, h5, h6, .font-serif-title { 
-  font-family: 'Cormorant Garamond', serif !important; 
+body {
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
 }
 
-/* Efeito de partículas místicas */
-.particle-mystic {
-  position: absolute;
-  border-radius: 9999px;
-  opacity: 0.15;
-  pointer-events: none;
-  filter: blur(1px);
-  transition: opacity 0.5s;
-  z-index: 0;
+.font-display {
+  font-family: 'Playfair Display', serif;
 }
 
-/* Gradiente animado */
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+.bg-stars {
+  background-color: #0f172a;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% 20%, rgba(168, 85, 247, 0.35), transparent),
+    radial-gradient(ellipse 120% 90% at 20% 0%, rgba(56, 189, 248, 0.4), transparent),
+    radial-gradient(ellipse 80% 80% at 80% 10%, rgba(251, 191, 36, 0.2), transparent);
 }
 
-.mystic-gradient {
-  background: linear-gradient(-45deg, #533483, #8b5cf6, #a855f7, #7c3aed, #6366f1);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
+.glass {
+  backdrop-filter: blur(16px);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.64));
+  border: 1px solid rgba(148, 163, 184, 0.2);
 }
 
-/* Efeitos de cards */
-.card-glow {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
-  transition: all 0.3s ease;
+.tarot-card {
+  background: linear-gradient(160deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 0 25px 60px -15px rgba(79, 70, 229, 0.35);
 }
 
-.card-glow:hover {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
-  transform: translateY(-5px);
-}
-
-.mystic-border {
-  border: 2px solid transparent;
-  background: linear-gradient(45deg, #8b5cf6, #a855f7, #7c3aed) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-}
-
-/* Animações */
-.floating {
-  animation: float 6s ease-in-out infinite;
+.glow {
+  box-shadow: 0 20px 45px -20px rgba(217, 70, 239, 0.65);
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-/* Backgrounds especiais */
-.crystal-bg {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 50%, rgba(124, 58, 237, 0.1) 100%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-/* Efeitos de texto */
-.text-glow {
-  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-}
-
-.mystic-text {
-  background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .floating {
-    animation: float 4s ease-in-out infinite;
+  0% {
+    transform: translateY(0);
   }
-  
-  .card-glow:hover {
-    transform: translateY(-3px);
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-/* Transições suaves */
-.fade-section {
-  transition: all 0.7s ease;
+.floating {
+  animation: float 6s ease-in-out infinite;
 }
-
-/* Efeitos de hover para links */
-a:hover {
-  transition: all 0.3s ease;
-}
-
-/* Estilos para formulários */
-.form-input {
-  transition: all 0.3s ease;
-}
-
-.form-input:focus {
-  transform: scale(1.02);
-}
-
-/* Estilos para botões */
-.btn-mystic {
-  background: linear-gradient(45deg, #8b5cf6, #a855f7);
-  transition: all 0.3s ease;
-}
-
-.btn-mystic:hover {
-  background: linear-gradient(45deg, #7c3aed, #9333ea);
-  transform: translateY(-2px);
-}
-
-/* Estilos para menu mobile */
-.mobile-menu-item {
-  display: block;
-  padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 50%, rgba(124, 58, 237, 0.1) 100%);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: 1rem;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: #f3f4f6;
-}
-
-.mobile-menu-item:hover {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(168, 85, 247, 0.2) 50%, rgba(124, 58, 237, 0.2) 100%);
-  border-color: rgba(139, 92, 246, 0.4);
-  transform: translateX(8px);
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
-}
-
-.mobile-menu-item:active {
-  transform: translateX(4px) scale(0.98);
-}
-
-/* Animação de entrada do menu mobile */
-#mobile-menu {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.3s ease-in-out;
-}
-
-#mobile-menu.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Efeito de ripple para botões do menu */
-.mobile-menu-item {
-  position: relative;
-  overflow: hidden;
-}
-
-.mobile-menu-item::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(139, 92, 246, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.mobile-menu-item:active::before {
-  width: 300px;
-  height: 300px;
-} 
