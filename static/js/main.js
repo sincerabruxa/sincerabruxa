@@ -10,58 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     signoSelect.value = '';
   }
 
-  const backToTop = document.getElementById('back-to-top');
-  if (backToTop) {
-    const toggleBackToTop = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const threshold = docHeight * 0.5;
-
-      if (scrollTop > threshold) {
-        backToTop.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-3');
-        backToTop.classList.add('pointer-events-auto');
-      } else {
-        backToTop.classList.add('pointer-events-none', 'opacity-0', 'translate-y-3');
-        backToTop.classList.remove('pointer-events-auto');
-      }
-    };
-
-    toggleBackToTop();
-    window.addEventListener('scroll', toggleBackToTop, { passive: true });
-
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
   const whatsappBtn = document.getElementById('whatsapp-floating');
   const footer = document.querySelector('footer');
   if (whatsappBtn && footer) {
-    let isFooterVisible = false;
-
-    const updateBtnVisibility = () => {
-      if (window.innerWidth >= 1024) {
-        whatsappBtn.classList.remove('opacity-0', 'pointer-events-none');
-        return;
-      }
-
-      const scrollPos = window.innerHeight + window.scrollY;
-      const totalHeight = document.documentElement.scrollHeight;
-      const isNearBottom = (totalHeight - scrollPos) < 120;
-      const shouldHide = isFooterVisible || isNearBottom;
-
-      whatsappBtn.classList.toggle('opacity-0', shouldHide);
-      whatsappBtn.classList.toggle('pointer-events-none', shouldHide);
-    };
-
     const observer = new IntersectionObserver(([entry]) => {
-      isFooterVisible = entry.isIntersecting;
-      updateBtnVisibility();
+      whatsappBtn.classList.toggle('opacity-0', entry.isIntersecting);
+      whatsappBtn.classList.toggle('pointer-events-none', entry.isIntersecting);
     }, { threshold: 0.1 });
 
     observer.observe(footer);
-    window.addEventListener('scroll', () => requestAnimationFrame(updateBtnVisibility), { passive: true });
-    window.addEventListener('resize', updateBtnVisibility, { passive: true });
   }
 
   if (whatsappForm) {
@@ -77,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mensagem && `Mensagem: ${mensagem}`,
       ].filter(Boolean);
 
-      const texto = partes.join(' | ') || 'Olá, quero saber mais sobre as consultas.';
+      const texto = partes.join(' | ') || 'Olá, gostaria de saber mais sobre as consultas de tarot.';
       const link = `https://wa.me/5522981735681?text=${encodeURIComponent(texto)}`;
       window.open(link, '_blank', 'noopener');
     });

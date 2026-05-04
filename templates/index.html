@@ -50,7 +50,7 @@
                     </div>
                     <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="group flex h-10 w-10 items-center justify-center rounded-full border border-purple-500/40 text-slate-200 transition-all duration-300 md:hidden focus:outline-none focus:ring-2 focus:ring-purple-400 [&.active]:bg-purple-500/20">
                         <span class="sr-only">Abrir menu</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300 group-[.active]:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300 group-[.active]:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path class="origin-center transition-all duration-300 group-[.active]:translate-y-[6px] group-[.active]:rotate-45" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" />
                             <path class="transition-opacity duration-300 group-[.active]:opacity-0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" />
                             <path class="origin-center transition-all duration-300 group-[.active]:-translate-y-[6px] group-[.active]:-rotate-45" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" />
@@ -66,7 +66,7 @@
                         <a href="#contato" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-purple-500/10 active:bg-purple-500/20">Contato</a>
                         <div class="mt-2 border-t border-purple-500/10 pt-2">
                             <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20minha%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-xl border border-purple-400/40 bg-purple-500/10 px-4 py-2.5 text-purple-200 transition hover:bg-purple-500/20">
-                                <span>Agenda agora</span> <span>✨</span>
+                                <span>Agendar agora</span> <span aria-hidden="true">✨</span>
                             </a>
                         </div>
                     </nav>
@@ -80,8 +80,8 @@
                             Bem-vinda(o) ao círculo
                         </span>
                         <h1 class="font-display text-4xl font-semibold leading-tight text-slate-50 sm:text-5xl lg:text-6xl">
-                            A Sincera Bruxa agradece seu contato.<br>
-                            <span class="text-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-amber-200 bg-clip-text">Como podemos ajudar sua jornada?</span>
+                            Encontre a clareza que você busca com o Tarot.<br>
+                            <span class="text-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-amber-200 bg-clip-text">Como posso guiar sua jornada hoje?</span>
                         </h1>
                         <p class="max-w-2xl text-lg text-slate-300 mx-auto lg:mx-0">
                             Consultas de tarot honestas, acolhedoras e respeitosas com a sua verdade. Escolha o formato ideal, envie seu comprovante e receba orientações alinhadas ao seu momento.
@@ -100,11 +100,11 @@
                         </div>
                         <div class="flex flex-col gap-4 sm:flex-row justify-center lg:justify-start">
                             <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20minha%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 px-6 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-purple-500/40 transition hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-purple-300">
-                                <span>Agendar agora</span>
-                                <span>✨</span>
+                                <span>Agendar Minha Consulta</span>
+                                <span aria-hidden="true">✨</span>
                             </a>
                             <a href="#consultas" class="inline-flex items-center justify-center gap-2 rounded-full border border-purple-400/40 px-6 py-3 text-base font-semibold text-purple-100 transition hover:bg-purple-500/10 focus:outline-none focus:ring-2 focus:ring-purple-300/60">
-                                Conheça as modalidades
+                                Ver modalidades de consulta
                             </a>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                         <div class="floating relative mx-auto max-w-xl rounded-[3rem] border border-purple-400/30 bg-gradient-to-br from-purple-900/20 via-transparent to-pink-500/10 p-10 text-center shadow-[0_30px_80px_-20px_rgba(192,132,252,0.35)]">
                             <div class="absolute inset-0 -z-10 blur-3xl bg-[radial-gradient(circle_at_top,rgba(192,132,252,0.35),transparent_60%)]"></div>
                             <div class="space-y-6 text-purple-100">
-                                <img src="{{ url_for('static', filename='img/logo1.jpeg') }}" alt="Logotipo A Sincera Bruxa" class="mx-auto w-full max-w-xs select-none drop-shadow-[0_20px_50px_rgba(192,132,252,0.5)] sm:max-w-sm lg:max-w-md" loading="lazy">
+                                <img src="{{ url_for('static', filename='img/logo1.jpeg') }}" alt="Logotipo A Sincera Bruxa" width="400" height="400" fetchpriority="high" class="mx-auto w-full max-w-xs select-none drop-shadow-[0_20px_50px_rgba(192,132,252,0.5)] sm:max-w-sm lg:max-w-md">
                                 <h2 class="font-display text-3xl font-semibold">Tarot que guia com sinceridade</h2>
                                 <p class="text-sm text-purple-100/80">
                                     Conecte-se com mensagens claras, direcionadas e acolhedoras. Cada leitura é feita com respeito à sua história e ao momento que você vive agora.
@@ -146,10 +146,10 @@
                                 </ul>
                                 <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20consultar%20perguntas%20objetivas." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-purple-500/40 transition hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-purple-300">
                                     Consultar agora
-                                    <span>💬</span>
+                                    <span aria-hidden="true">💬</span>
                                 </a>
                                 <div class="mt-8 rounded-2xl border border-purple-400/30 bg-purple-500/10 p-4 text-xs uppercase tracking-[0.3em] text-purple-200/70">
-                                    Envio em até 24h úteis
+                                    Resposta em até 24h úteis
                                 </div>
                             </article>
 
@@ -164,7 +164,7 @@
                                 </ul>
                                 <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20uma%20consulta%20em%20vídeo." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-pink-400/60 bg-pink-500/20 px-5 py-3 text-sm font-semibold text-pink-100 shadow-lg shadow-pink-500/30 transition hover:bg-pink-500/30 focus:outline-none focus:ring-2 focus:ring-pink-300/70">
                                     Agendar vídeo
-                                    <span>🎥</span>
+                                    <span aria-hidden="true">🎥</span>
                                 </a>
                                 <div class="mt-8 rounded-2xl border border-pink-400/30 bg-pink-500/10 p-4 text-xs uppercase tracking-[0.3em] text-pink-200/70">
                                     Escolha tema: amor, carreira, espiritualidade...
@@ -185,7 +185,7 @@
                                 </ul>
                                 <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Desejo%20iniciar%20a%20Jornada%20Completa." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-amber-400/60 bg-amber-500/20 px-5 py-3 text-sm font-semibold text-amber-100 shadow-lg shadow-amber-500/30 transition hover:bg-amber-500/30 focus:outline-none focus:ring-2 focus:ring-amber-200/70">
                                     Quero a jornada
-                                    <span>✨</span>
+                                    <span aria-hidden="true">✨</span>
                                 </a>
                                 <div class="mt-8 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4 text-xs uppercase tracking-[0.3em] text-amber-200/80">
                                     Transforme-se com acompanhamento contínuo
@@ -328,7 +328,7 @@
                                     <ul class="mt-4 space-y-2 text-sm text-slate-200/80">
                                         <li class="flex gap-2">
                                             <span class="mt-0.5 text-purple-200">➤</span>
-                                            <span>Nome completo e data de nascimento.</span>
+                                            <span>Seu nome e data de nascimento.</span>
                                         </li>
                                         <li class="flex gap-2">
                                             <span class="mt-0.5 text-purple-200">➤</span>
@@ -341,7 +341,7 @@
                                     </ul>
                                     <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20confirmar%20meu%20pagamento%20e%20enviar%20os%20dados." target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-purple-100 transition hover:bg-purple-500/30 focus:outline-none focus:ring-2 focus:ring-purple-400/60">
                                         Mais informações no WhatsApp
-                                        <span>💬</span>
+                                        <span aria-hidden="true">💬</span>
                                     </a>
                                 </div>
                             </div>
@@ -426,30 +426,30 @@
                                                 </svg>
                                             </a>
                                             <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!" target="_blank" rel="noopener noreferrer" class="transition hover:text-emerald-200 hover:-translate-y-0.5" aria-label="WhatsApp">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current" aria-hidden="true">
                                                     <path d="M12 2a9 9 0 0 1 7.129 14.6L19 20.5l-3.952-1.037A9 9 0 1 1 12 2Zm0 2a7 7 0 1 0 0 14c1.05 0 2.049-.23 2.94-.642l.335-.154 2.29.601-.63-2.406.214-.33A7 7 0 0 0 12 4Zm-3.2 3.3c.17-.01.368.002.572.027l.214.03c.18.03.388.16.453.314l.314.748.121.283c.121.283.012.472-.229.68-.23.2-.47.52-.47.52-.157.21-.094.45.138.72l.092.099c.46.51.904.83 1.503 1.12.86.418 1.333.517 1.54.53l.12.005c.283.012.4-.04.584-.217.17-.17.231-.26.357-.445.135-.2.271-.236.464-.157l.082.03 1.274.598c.283.135.464.236.53.376.066.135.066.572-.054.806-.121.23-.564.53-.779.684-.21.145-.474.314-.792.33-.317.01-.635-.012-.965-.033-.33-.022-.699-.117-1.105-.25l-.162-.056c-.506-.177-1.145-.41-1.892-.975-.555-.417-.88-.768-.904-.792-.023-.025-.564-.523-.89-1.192-.33-.656-.436-1.207-.464-1.286-.033-.08-.23-.904.138-1.63.363-.73.9-1.18 1.28-1.305.078-.025.158-.04.236-.046Z"/>
                                                 </svg>
                                             </a>
                                         </div>
                                         <figure class="mt-8 overflow-hidden rounded-3xl border border-purple-400/30 bg-gradient-to-br from-purple-900/40 via-slate-900/60 to-slate-950/80 shadow-[0_25px_60px_-25px_rgba(192,132,252,0.35)]">
-                                            <img src="{{ url_for('static', filename='img/logo2.jpeg') }}" alt="Tatïana em consulta, A Sincera Bruxa" class="h-full w-full object-cover">
+                                            <img src="{{ url_for('static', filename='img/logo2.jpeg') }}" alt="Tatïana em consulta, A Sincera Bruxa" width="400" height="300" class="h-full w-full object-cover" loading="lazy">
                                         </figure>
                                     </div>
                                 </div>
                                 <form method="post" class="glass rounded-3xl p-6 md:p-8" data-whatsapp-form>
                                     <p class="text-sm uppercase tracking-[0.35em] text-purple-200/70">Mensagem rápida</p>
-                                    <h3 class="mt-3 text-xl font-semibold text-slate-100">Compartilhe seu nome, pergunta e melhor horário.</h3>
+                                    <h3 class="mt-3 text-xl font-semibold text-slate-100">Como posso ajudar você hoje?</h3>
                                     <div class="mt-6 grid gap-4">
-                                        <input type="text" name="nome" placeholder="Seu nome completo" class="w-full rounded-2xl border border-purple-400/30 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/70" required>
-                                        <input type="text" name="tema" placeholder="Tema da consulta (amor, carreira, etc.)" class="w-full rounded-2xl border border-purple-400/30 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/70" required>
-                                        <textarea name="mensagem" rows="4" placeholder="Sua pergunta ou objetivo + disponibilidade" class="w-full rounded-2xl border border-purple-400/30 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/70" required></textarea>
+                                        <input type="text" name="nome" aria-label="Seu nome completo" placeholder="Seu nome completo" class="w-full rounded-2xl border border-purple-400/30 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/70" required>
+                                        <input type="text" name="tema" aria-label="Tema da consulta" placeholder="Tema da consulta (amor, carreira, etc.)" class="w-full rounded-2xl border border-purple-400/30 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/70" required>
+                                        <textarea name="mensagem" aria-label="Sua dúvida" rows="4" placeholder="Qual dúvida você deseja esclarecer agora?" class="w-full rounded-2xl border border-purple-400/30 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 focus:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400/70" required></textarea>
                                     </div>
                                     <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 px-6 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-purple-500/40 transition hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-purple-300">
-                                        Enviar via WhatsApp
-                                        <span>💬</span>
+                                        Iniciar Conversa no WhatsApp
+                                        <span aria-hidden="true">💬</span>
                                     </button>
                                     <figure class="mt-8 overflow-hidden rounded-3xl border border-purple-400/20 bg-slate-900/60 p-4 shadow-[0_20px_60px_-25px_rgba(192,132,252,0.35)]">
-                                        <img src="{{ url_for('static', filename='img/logo3.jpeg') }}" alt="Logo adicional A Sincera Bruxa" class="w-full rounded-2xl object-cover">
+                                        <img src="{{ url_for('static', filename='img/logo3.jpeg') }}" alt="Logo adicional A Sincera Bruxa" width="400" height="200" class="w-full rounded-2xl object-cover" loading="lazy">
                                     </figure>
                                 </form>
                             </div>
@@ -498,12 +498,6 @@
             </footer>
         </div>
     </div>
-
-    <button id="back-to-top" type="button" aria-label="Voltar ao topo" class="fixed bottom-20 right-5 z-[9998] hidden lg:flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-slate-900 shadow-lg shadow-purple-500/40 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-300 pointer-events-none opacity-0 translate-y-3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6">
-            <path fill="currentColor" d="M12 5.5 5.5 12H10v6h4v-6h4.5L12 5.5Z"/>
-        </svg>
-    </button>
 
     <a id="whatsapp-floating" href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20uma%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[9999] flex items-center justify-center rounded-full bg-emerald-500 p-3 text-white shadow-lg shadow-emerald-500/40 transition-all duration-300 hover:scale-105 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Contato WhatsApp" class="h-10 w-10" width="40" height="40" loading="lazy">
