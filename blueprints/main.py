@@ -242,8 +242,13 @@ def index():
     if request.method == "POST":
         signo = request.form.get("signo")
         if signo:
-            horoscopo_diario = get_horoscopo_diario(signo)
-            horoscopo_semanal = get_horoscopo_semanal(signo)
+            # Tentativa de busca com fallbacks amigáveis para o usuário
+            res_diario = get_horoscopo_diario(signo)
+            res_semanal = get_horoscopo_semanal(signo)
+            
+            horoscopo_diario = res_diario or "Os astros estão em silêncio hoje. Tente novamente em alguns instantes."
+            horoscopo_semanal = res_semanal or "A previsão semanal está sendo escrita pelas estrelas. Volte mais tarde!"
+            
             logger.info("Horóscopo semanal para %s: %s", signo, horoscopo_semanal)
             signo_consulta = signo
             signo_consulta_label = Config.SIGNOS.get(signo, signo.capitalize())
