@@ -21,14 +21,14 @@ P = ParamSpec("P")
 T = TypeVar("T")
 
 
-def ttl_cache(ttl_seconds: int) -> Callable[[Callable[P, T]], Callable[P, T]]:
-    """Cache simples com TTL para reduzir chamadas remotas sem dependências extras."""
+def ttl_cache(ttl_seconds: int, cache_none: bool = False) -> Callable[[Callable[P, T]], Callable[P, T]]:
+    """Cache simples com TTL. Por padrão, não armazena resultados None (falhas)."""
 
     def decorator(func: Callable[P, T]) -> Callable[P, T]:
         cache: dict[Any, tuple[float, T]] = {}
 
         @wraps(func)
-        def wrapper(*args: P.args, **kwargs: P.kwargs) -> T:
+        def wrapper(*args: P.args, **kwargs: P.kwargs) -> T: # type: ignore
             key = (args, frozenset(kwargs.items()))
             now = time.monotonic()
             expires, cached_value = cache.get(key, (0.0, None))  # type: ignore[misc]
@@ -36,7 +36,8 @@ def ttl_cache(ttl_seconds: int) -> Callable[[Callable[P, T]], Callable[P, T]]:
                 return cached_value
 
             value = func(*args, **kwargs)
-            cache[key] = (now + ttl_seconds, value)
+            if cache_none or value is not None:
+                cache[key] = (now + ttl_seconds, value)
             return value
 
         return wrapper
@@ -106,17 +107,18 @@ def _normalizar_signo(signo: str) -> str | None:
     return SIGNO_MAP.get(slug)
 
 
-@ttl_cache(ttl_seconds=1800)  # cache de 30 min para evitar requisições repetidas ao horóscopo diário
-def get_horoscopo_diario(signo: str) -> str:
+@ttl_cache(ttl_seconds=1800)  
+def get_horoscopo_diario(signo: str) -> str | None:
+    """Retorna o horóscopo do dia ou None se falhar."""
     slug = _normalizar_signo(signo)
     if not slug:
-        return "Signo não reconhecido."
+        return None
 
     url = f"https://www.uol.com.br/universa/horoscopo/{slug}/horoscopo-do-dia/"
     try:
         response = session.get(url, timeout=REQUEST_TIMEOUT)
-        if response.status_code == 403:
-            logger.warning("Recebido 403 ao buscar horóscopo diário do signo %s. Verifique bloqueios do site.", signo)
+        logger.info("UOL Scraping [%s]: Status %s, Tamanho: %d bytes", signo, response.status_code, len(response.text))
+        
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
         selectors = [
@@ -346,4 +348,3 @@ def _join_content(content):
         value = content.get("text") or content.get("content")
         return _join_content(value)
     return ""
-
