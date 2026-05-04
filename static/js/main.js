@@ -14,8 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const footer = document.querySelector('footer');
   if (whatsappBtn && footer) {
     const observer = new IntersectionObserver(([entry]) => {
-      whatsappBtn.classList.toggle('opacity-0', entry.isIntersecting);
-      whatsappBtn.classList.toggle('pointer-events-none', entry.isIntersecting);
+      whatsappBtn.style.display = entry.isIntersecting ? 'none' : 'flex';
     }, { threshold: 0 });
 
     observer.observe(footer);
