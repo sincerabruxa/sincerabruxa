@@ -48,30 +48,34 @@
                             <span>Agenda agora</span> <span>✨</span>
                         </a>
                     </div>
-                    <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="flex h-10 w-10 items-center justify-center rounded-full border border-purple-500/40 text-slate-200 md:hidden focus:outline-none focus:ring-2 focus:ring-purple-400">
+                    <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="group flex h-10 w-10 items-center justify-center rounded-full border border-purple-500/40 text-slate-200 transition-all duration-300 md:hidden focus:outline-none focus:ring-2 focus:ring-purple-400 [&.active]:bg-purple-500/20">
                         <span class="sr-only">Abrir menu</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300 group-[.active]:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path class="origin-center transition-all duration-300 group-[.active]:translate-y-[6px] group-[.active]:rotate-45" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" />
+                            <path class="transition-opacity duration-300 group-[.active]:opacity-0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" />
+                            <path class="origin-center transition-all duration-300 group-[.active]:-translate-y-[6px] group-[.active]:-rotate-45" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" />
                         </svg>
                     </button>
                 </nav>
-                <div id="mobile-menu" class="glass absolute inset-x-6 top-20 z-50 hidden rounded-3xl px-6 py-6 md:hidden">
-                    <nav class="flex flex-col gap-4 text-base text-slate-200">
-                        <a href="#consultas" class="hover:text-purple-300 transition">Consultas</a>
-                        <a href="#miniaturas" class="hover:text-purple-300 transition">Perguntas</a>
-                        <a href="#horoscopo" class="hover:text-purple-300 transition">Horóscopo</a>
-                        <a href="#pagamento" class="hover:text-purple-300 transition">Pagamentos</a>
-                        <a href="#contato" class="hover:text-purple-300 transition">Contato</a>
-                        <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20minha%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-full border border-purple-400/40 px-4 py-3 text-purple-200 transition hover:bg-purple-500/10">
-                            <span>Agenda agora</span> <span>✨</span>
-                        </a>
+                <div id="mobile-menu" class="glass absolute inset-x-6 top-[4.5rem] z-50 hidden rounded-2xl border border-purple-500/20 px-4 py-4 shadow-2xl md:hidden">
+                    <nav class="flex flex-col gap-1 text-sm font-medium text-slate-200">
+                        <a href="#consultas" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-purple-500/10 active:bg-purple-500/20">Consultas</a>
+                        <a href="#miniaturas" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-purple-500/10 active:bg-purple-500/20">Perguntas</a>
+                        <a href="#horoscopo" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-purple-500/10 active:bg-purple-500/20">Horóscopo</a>
+                        <a href="#pagamento" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-purple-500/10 active:bg-purple-500/20">Pagamentos</a>
+                        <a href="#contato" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-purple-500/10 active:bg-purple-500/20">Contato</a>
+                        <div class="mt-2 border-t border-purple-500/10 pt-2">
+                            <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20minha%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-xl border border-purple-400/40 bg-purple-500/10 px-4 py-2.5 text-purple-200 transition hover:bg-purple-500/20">
+                                <span>Agenda agora</span> <span>✨</span>
+                            </a>
+                        </div>
                     </nav>
                 </div>
             </header>
 
             <main class="relative z-10" id="inicio">
                 <section class="mx-auto flex max-w-6xl flex-col gap-12 px-6 pb-20 pt-8 lg:flex-row lg:items-center lg:px-8">
-                    <div class="flex-1 space-y-8">
+                    <div class="flex-1 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
                         <span class="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200/80">
                             Bem-vinda(o) ao círculo
                         </span>
@@ -79,7 +83,7 @@
                             A Sincera Bruxa agradece seu contato.<br>
                             <span class="text-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-amber-200 bg-clip-text">Como podemos ajudar sua jornada?</span>
                         </h1>
-                        <p class="max-w-2xl text-lg text-slate-300">
+                        <p class="max-w-2xl text-lg text-slate-300 mx-auto lg:mx-0">
                             Consultas de tarot honestas, acolhedoras e respeitosas com a sua verdade. Escolha o formato ideal, envie seu comprovante e receba orientações alinhadas ao seu momento.
                         </p>
                         <div class="grid gap-4 sm:grid-cols-2">
@@ -94,7 +98,7 @@
                                 <p class="mt-3 text-sm text-slate-300">Perguntas objetivas recebem foto da tiragem e áudio. Consultas completas via chamada de vídeo.</p>
                             </div>
                         </div>
-                        <div class="flex flex-col gap-4 sm:flex-row">
+                        <div class="flex flex-col gap-4 sm:flex-row justify-center lg:justify-start">
                             <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20minha%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 px-6 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-purple-500/40 transition hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-purple-300">
                                 <span>Agendar agora</span>
                                 <span>✨</span>
@@ -483,7 +487,7 @@
                         <!-- Direita: Desenvolvedor -->
                         <div class="order-3 text-center lg:text-right">
                             <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-purple-200/40 lg:text-[11px]">
-                                Crafted by 
+                                Desenvolvido por 
                                 <a href="https://www.watechevoce.com.br" target="_blank" rel="noopener noreferrer" class="inline-block border-b border-transparent font-black text-purple-100 transition-all hover:border-purple-400 hover:text-white">
                                     W.A.Techevoce
                                 </a>

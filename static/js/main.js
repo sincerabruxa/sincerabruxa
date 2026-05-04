@@ -37,13 +37,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const whatsappBtn = document.getElementById('whatsapp-floating');
   const footer = document.querySelector('footer');
   if (whatsappBtn && footer) {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (window.innerWidth < 1024) {
-        whatsappBtn.classList.toggle('opacity-0', entry.isIntersecting);
-        whatsappBtn.classList.toggle('pointer-events-none', entry.isIntersecting);
+    let isFooterVisible = false;
+
+    const updateBtnVisibility = () => {
+      if (window.innerWidth >= 1024) {
+        whatsappBtn.classList.remove('opacity-0', 'pointer-events-none');
+        return;
       }
+
+      const scrollPos = window.innerHeight + window.scrollY;
+      const totalHeight = document.documentElement.scrollHeight;
+      const isNearBottom = (totalHeight - scrollPos) < 120;
+      const shouldHide = isFooterVisible || isNearBottom;
+
+      whatsappBtn.classList.toggle('opacity-0', shouldHide);
+      whatsappBtn.classList.toggle('pointer-events-none', shouldHide);
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isFooterVisible = entry.isIntersecting;
+      updateBtnVisibility();
     }, { threshold: 0.1 });
+
     observer.observe(footer);
+    window.addEventListener('scroll', () => requestAnimationFrame(updateBtnVisibility), { passive: true });
+    window.addEventListener('resize', updateBtnVisibility, { passive: true });
   }
 
   if (whatsappForm) {
@@ -68,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileButton && mobileMenu) {
     const toggleMenu = () => {
       const isHidden = mobileMenu.classList.toggle('hidden');
+      mobileButton.classList.toggle('active', !isHidden);
       mobileButton.setAttribute('aria-expanded', String(!isHidden));
     };
 
@@ -76,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = () => {
       if (!mobileMenu.classList.contains('hidden')) {
         mobileMenu.classList.add('hidden');
+        mobileButton.classList.remove('active');
         mobileButton.setAttribute('aria-expanded', 'false');
       }
     };
