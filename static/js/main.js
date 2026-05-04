@@ -34,6 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const whatsappBtn = document.getElementById('whatsapp-floating');
+  const footer = document.querySelector('footer');
+  if (whatsappBtn && footer) {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (window.innerWidth < 1024) {
+        whatsappBtn.classList.toggle('opacity-0', entry.isIntersecting);
+        whatsappBtn.classList.toggle('pointer-events-none', entry.isIntersecting);
+      }
+    }, { threshold: 0.1 });
+    observer.observe(footer);
+  }
+
   if (whatsappForm) {
     whatsappForm.addEventListener('submit', (event) => {
       event.preventDefault();

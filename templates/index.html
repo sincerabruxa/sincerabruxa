@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased">
+<body class="bg-slate-950 text-slate-100 antialiased overflow-x-hidden w-full">
     <div class="relative bg-stars min-h-screen overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(217,70,239,0.18),transparent_60%)]"></div>
         <div class="relative">
@@ -55,7 +55,7 @@
                         </svg>
                     </button>
                 </nav>
-                <div id="mobile-menu" class="glass absolute left-0 right-0 top-20 z-50 mx-6 hidden rounded-3xl px-6 py-6 md:hidden">
+                <div id="mobile-menu" class="glass absolute inset-x-6 top-20 z-50 hidden rounded-3xl px-6 py-6 md:hidden">
                     <nav class="flex flex-col gap-4 text-base text-slate-200">
                         <a href="#consultas" class="hover:text-purple-300 transition">Consultas</a>
                         <a href="#miniaturas" class="hover:text-purple-300 transition">Perguntas</a>
@@ -454,28 +454,54 @@
                 </section>
             </main>
 
-            <footer class="relative border-t border-purple-500/20 bg-slate-950/80">
-                <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-                    <p>© {{ current_year | default(2025) }} A Sincera Bruxa. Todos os direitos reservados.</p>
-                    <div class="flex flex-wrap items-center gap-5">
-                        <a href="#consultas" class="hover:text-purple-200 transition">Modalidades</a>
-                        <a href="#horoscopo" class="hover:text-purple-200 transition">Horóscopo</a>
-                        <a href="#pagamento" class="hover:text-purple-200 transition">Pagamentos</a>
-                        <a href="#contato" class="hover:text-purple-200 transition">Contato</a>
+            <footer class="relative border-t border-purple-500/20 bg-slate-950/90">
+                <!-- Linha de brilho sutil no topo do footer para aspecto premium -->
+                <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-500/40 to-transparent"></div>
+                
+                <div class="mx-auto max-w-6xl px-6 py-4 lg:px-8 lg:py-8">
+                    <div class="grid grid-cols-1 items-center gap-y-4 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-0">
+                        
+                        <!-- Esquerda: Copyright -->
+                        <div class="order-2 text-center lg:order-1 lg:text-left">
+                            <p class="text-xs tracking-wide text-slate-400/90">
+                                © {{ current_year | default(2025) }} <span class="font-medium text-slate-300">A Sincera Bruxa</span>.
+                                <span class="mt-1 block lg:mt-0">Todos os direitos reservados.</span>
+                            </p>
+                        </div>
+
+                        <!-- Centro: Navegação com Separadores Visuais -->
+                        <nav class="order-1 flex flex-wrap justify-center items-center gap-x-4 gap-y-2 lg:order-2 lg:justify-self-center lg:gap-x-8">
+                            <a href="#consultas" class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-200 transition hover:text-purple-300 lg:text-[13px]">Modalidades</a>
+                            <span class="hidden h-4 w-px bg-purple-500/30 lg:block"></span>
+                            <a href="#horoscopo" class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-200 transition hover:text-purple-300 lg:text-[13px]">Horóscopo</a>
+                            <span class="hidden h-4 w-px bg-purple-500/30 lg:block"></span>
+                            <a href="#pagamento" class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-200 transition hover:text-purple-300 lg:text-[13px]">Pagamentos</a>
+                            <span class="hidden h-4 w-px bg-purple-500/30 lg:block"></span>
+                            <a href="#contato" class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-200 transition hover:text-purple-300 lg:text-[13px]">Contato</a>
+                        </nav>
+
+                        <!-- Direita: Desenvolvedor -->
+                        <div class="order-3 text-center lg:text-right">
+                            <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-purple-200/40 lg:text-[11px]">
+                                Crafted by 
+                                <a href="https://www.watechevoce.com.br" target="_blank" rel="noopener noreferrer" class="inline-block border-b border-transparent font-black text-purple-100 transition-all hover:border-purple-400 hover:text-white">
+                                    W.A.Techevoce
+                                </a>
+                            </p>
+                        </div>
                     </div>
-                    <p class="text-xs uppercase tracking-[0.35em] text-purple-200/70">Desenvolvido por <a href="https://www.watechevoce.com.br" target="_blank" rel="noopener noreferrer" class="font-semibold text-purple-100 hover:text-purple-50 transition">W.A.Techevoce</a></p>
                 </div>
             </footer>
         </div>
     </div>
 
-    <button id="back-to-top" type="button" aria-label="Voltar ao topo" class="fixed bottom-20 right-5 z-[9998] flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-slate-900 shadow-lg shadow-purple-500/40 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-300 pointer-events-none opacity-0 translate-y-3">
+    <button id="back-to-top" type="button" aria-label="Voltar ao topo" class="fixed bottom-20 right-5 z-[9998] hidden lg:flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-slate-900 shadow-lg shadow-purple-500/40 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-300 pointer-events-none opacity-0 translate-y-3">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6">
             <path fill="currentColor" d="M12 5.5 5.5 12H10v6h4v-6h4.5L12 5.5Z"/>
         </svg>
     </button>
 
-    <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20uma%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[9999] flex items-center justify-center rounded-full bg-emerald-500 p-3 text-white shadow-lg shadow-emerald-500/40 transition-transform hover:scale-105 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300">
+    <a id="whatsapp-floating" href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20uma%20consulta%20de%20tarot." target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[9999] flex items-center justify-center rounded-full bg-emerald-500 p-3 text-white shadow-lg shadow-emerald-500/40 transition-all duration-300 hover:scale-105 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Contato WhatsApp" class="h-10 w-10" width="40" height="40" loading="lazy">
     </a>
 
