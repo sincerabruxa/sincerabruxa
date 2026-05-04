@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(([entry]) => {
       whatsappBtn.classList.toggle('opacity-0', entry.isIntersecting);
       whatsappBtn.classList.toggle('pointer-events-none', entry.isIntersecting);
-    }, { threshold: 0.1 });
+    }, { threshold: 0 });
 
     observer.observe(footer);
   }
