@@ -9,7 +9,7 @@ class Config:
     DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
     
     # Configurações do servidor
-    HOST = os.environ.get('HOST', '0.0.0.0')
+    HOST = "127.0.0.1"
     PORT = int(os.environ.get('PORT', 5000))
     
     # Configurações de horóscopo
@@ -108,6 +108,12 @@ class Config:
             'nome': 'Ana Costa',
             'inicial': 'A',
             'texto': '"Luna tem uma sensibilidade única. Suas leituras são sempre certeiras e transformadoras."',
+            'estrelas': 5
+        },
+        {
+            'nome': 'Carla Mendes',
+            'inicial': 'C',
+            'texto': '"A consulta foi muito clara e acolhedora. Saí com respostas e mais confiança no meu caminho."',
             'estrelas': 5
         }
     ]

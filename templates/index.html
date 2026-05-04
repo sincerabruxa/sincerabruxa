@@ -135,10 +135,10 @@
                                     <h3 class="font-display text-2xl font-semibold text-purple-100">Perguntas Objetivas</h3>
                                     <span class="text-3xl">🃏</span>
                                 </div>
-                                <p class="mt-4 text-sm text-slate-300">Receba foto da tiragem + áudio explicativo.</p>
+                                <p class="mt-4 text-sm text-slate-300">Foto da tiragem + áudio, com explicação</p>
                                 <ul class="mt-6 space-y-2 text-sm text-slate-200/90">
-                                    <li>• 1 pergunta: <span class="font-semibold text-purple-100">R$ 18,00</span></li>
-                                    <li>• 2 perguntas: <span class="font-semibold text-purple-100">R$ 30,00</span></li>
+                                    <li>• 1 pergunta: <span class="font-semibold text-purple-100">R$ 20,00</span></li>
+                                    <li>• 2 perguntas: <span class="font-semibold text-purple-100">R$ 50,00</span></li>
                                 </ul>
                                 <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20consultar%20perguntas%20objetivas." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-purple-500/40 transition hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-purple-300">
                                     Consultar agora
@@ -156,9 +156,7 @@
                                 </div>
                                 <p class="mt-4 text-sm text-slate-300">Chamadas de vídeo para mergulhar em uma área da vida por vez.</p>
                                 <ul class="mt-6 space-y-2 text-sm text-slate-200/90">
-                                    <li>• 20 minutos: <span class="font-semibold text-purple-100">R$ 50,00</span></li>
-                                    <li>• 30 minutos: <span class="font-semibold text-purple-100">R$ 80,00</span></li>
-                                    <li>• 1 hora: <span class="font-semibold text-purple-100">R$ 150,00</span></li>
+                                    <li>• 30 minutos: <span class="font-semibold text-purple-100">R$ 100,00</span></li>
                                 </ul>
                                 <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Quero%20agendar%20uma%20consulta%20em%20vídeo." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-pink-400/60 bg-pink-500/20 px-5 py-3 text-sm font-semibold text-pink-100 shadow-lg shadow-pink-500/30 transition hover:bg-pink-500/30 focus:outline-none focus:ring-2 focus:ring-pink-300/70">
                                     Agendar vídeo
@@ -176,9 +174,10 @@
                                 </div>
                                 <p class="mt-4 text-sm text-slate-300">Previsão detalhada para os próximos seis meses e formação.</p>
                                 <ul class="mt-6 space-y-2 text-sm text-slate-200/90">
-                                    <li>• Vida completa 6 meses: <span class="font-semibold text-purple-100">R$ 200,00</span></li>
+                                    <li>• Mesa real (consulta completa): <span class="font-semibold text-purple-100">R$ 200,00</span></li>
                                     <li>• Curso Baralho Cigano (com certificado): <span class="font-semibold text-purple-100">R$ 300,00</span></li>
-                                    <li class="text-xs text-slate-400">Curso via grupo no WhatsApp com vídeo aulas.</li>
+                                    <li>• Curso Mesa Real (com certificado): <span class="font-semibold text-purple-100">R$ 300,00</span></li>
+                                    <li class="text-xs text-slate-400">Cursos via grupo no WhatsApp com vídeo aulas.</li>
                                 </ul>
                                 <a href="https://wa.me/5522981735681?text=Olá%20A%20Sincera%20Bruxa!%20Desejo%20iniciar%20a%20Jornada%20Completa." target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-amber-400/60 bg-amber-500/20 px-5 py-3 text-sm font-semibold text-amber-100 shadow-lg shadow-amber-500/30 transition hover:bg-amber-500/30 focus:outline-none focus:ring-2 focus:ring-amber-200/70">
                                     Quero a jornada
@@ -373,113 +372,7 @@
                         </div>
                     </div>
                 </section>
-
-                <section id="parcerias" class="relative bg-slate-900/30 py-20">
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(192,132,252,0.18),transparent_65%)]"></div>
-                    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
-                        <div class="mx-auto max-w-3xl text-center">
-                            <span class="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200/80">
-                                Nossos parceiros
-                            </span>
-                            <h2 class="font-display mt-6 text-3xl font-semibold text-slate-50 sm:text-4xl">Alianças que compartilham nossa magia</h2>
-                            <p class="mt-4 text-base text-slate-300">Empresas e projetos que vibram na mesma energia e oferecem experiências que complementam sua jornada.</p>
-                        </div>
-
-                        <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                            {% for parceria in parcerias %}
-                                {% if parceria.get('slug') == 'watech' %}
-                                    <article class="group relative flex flex-col gap-8 rounded-[2.5rem] border border-purple-400/30 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-10 text-slate-100 shadow-[0_30px_70px_-25px_rgba(88,28,135,0.55)] transition hover:-translate-y-2 hover:shadow-[0_35px_90px_-20px_rgba(99,102,241,0.55)]">
-                                        <div class="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
-                                            <!-- Logo WAtech sem moldura para melhor legibilidade em todas as telas -->
-                                            <img src="{{ url_for('static', filename='img/' + parceria.imagem) }}" alt="{{ parceria.nome }}" class="h-24 w-auto flex-shrink-0 select-none drop-shadow-[0_15px_30px_rgba(56,189,248,0.35)] sm:h-28 lg:h-32">
-                                            <div class="flex flex-col gap-3">
-                                                <span class="inline-flex items-center gap-2">
-                                                    <span class="rounded-full border border-amber-400/40 bg-amber-500/10 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-amber-200/80">{{ parceria.get('badge_label', 'Afiliado oficial') }}</span>
-                                                </span>
-                                                <h3 class="font-display text-3xl font-semibold text-slate-50">{{ parceria.nome }}</h3>
-                                            </div>
-                                        </div>
-                                        <div class="space-y-3 text-sm leading-relaxed text-slate-200">
-                                            {% for beneficio in parceria.get('beneficios', []) %}
-                                                <div class="flex gap-3">
-                                                    <span class="mt-0.5 text-base">{{ beneficio.icone }}</span>
-                                                    <p>{{ beneficio.texto }}</p>
-                                                </div>
-                                            {% endfor %}
-                                            {% if not parceria.get('beneficios') and parceria.descricao %}
-                                                <p>{{ parceria.descricao }}</p>
-                                            {% endif %}
-                                        </div>
-                                        <div class="flex flex-col gap-4">
-                                            {% if parceria.get('amazon_url') %}
-                                                <a href="{{ parceria.get('amazon_url') }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between gap-2 rounded-2xl border border-amber-400/40 bg-amber-500/10 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-300/60 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200">
-                                                    {{ parceria.get('amazon_cta', 'Visitar nossa loja oficial') }}
-                                                    <svg class="h-4 w-4 flex-none" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                                        <path d="M7 17L17 7M9 7H17V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </a>
-                                            {% endif %}
-                                            <div class="flex flex-wrap items-center gap-6">
-                                                <a href="{{ parceria.url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-400 to-fuchsia-500 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-indigo-500/30 transition hover:translate-y-0.5 hover:shadow-indigo-500/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300">
-                                                    {{ parceria.get('cta', 'Conheça mais') }}
-                                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                                        <path d="M7 17L17 7M9 7H17V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="pointer-events-none absolute inset-0 rounded-[2.5rem] border border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"></div>
-                                    </article>
-                                {% else %}
-                                    <article class="group rounded-[2.5rem] border border-purple-400/25 bg-gradient-to-br from-purple-900/25 via-slate-950/70 to-slate-950/80 p-8 text-slate-100 shadow-[0_30px_60px_-25px_rgba(147,51,234,0.4)] transition hover:-translate-y-2 hover:shadow-[0_35px_80px_-20px_rgba(168,85,247,0.45)]">
-                                        <div class="flex items-center justify-between">
-                                            <div class="rounded-2xl bg-slate-950/60 p-4 shadow-inner">
-                                                <img src="{{ url_for('static', filename='img/' + parceria.imagem) }}" alt="{{ parceria.nome }}" class="h-16 w-16 object-contain drop-shadow-[0_6px_16px_rgba(56,189,248,0.35)]">
-                                            </div>
-                                            <span class="rounded-full border border-purple-400/20 bg-purple-500/10 px-3 py-1 text-xs uppercase tracking-[0.3em] text-purple-200/70">
-                                                Em sintonia
-                                            </span>
-                                        </div>
-                                        <h3 class="mt-6 font-display text-2xl font-semibold text-purple-100">{{ parceria.nome }}</h3>
-                                        <p class="mt-4 text-sm leading-relaxed text-slate-200/90">{{ parceria.descricao }}</p>
-                                        <a href="{{ parceria.url }}" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-gradient-to-r from-purple-500/20 via-purple-500/10 to-amber-400/10 px-5 py-3 text-sm font-semibold text-purple-100 transition hover:bg-purple-500/30 focus:outline-none focus:ring-2 focus:ring-purple-400/60">
-                                            {{ parceria.get('cta', 'Conheça mais') }}
-                                            <span>→</span>
-                                        </a>
-                                    </article>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </section>
-
-                <section id="tiktok" class="relative bg-slate-900/40 py-20">
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(34,197,94,0.2),transparent_60%)]"></div>
-                    <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
-                        <div class="grid gap-10 lg:grid-cols-[1.2fr,1fr]">
-                            <div class="space-y-6">
-                                <span class="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200/80">
-                                    Redes & conteúdos
-                                </span>
-                                <h2 class="font-display mt-6 text-3xl font-semibold text-slate-50 sm:text-4xl">Siga a energia</h2>
-                                <p class="mt-4 text-base text-slate-300">Acompanhe tiragens, conselhos diários e conteúdos exclusivos no TikTok.</p>
-                                <a href="https://vm.tiktok.com/ZMSETtvGt/" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-3 rounded-full border border-purple-400/40 bg-purple-500/10 px-5 py-3 text-sm font-semibold text-purple-100 transition hover:bg-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-400/50">
-                                    Ver perfil no TikTok
-                                    <span>→</span>
-                                </a>
-                                <p class="text-xs uppercase tracking-[0.25em] text-purple-200/60">Se o vídeo não carregar, acesse pelo botão acima.</p>
-                            </div>
-                            <div class="flex justify-center">
-                                <!-- Player TikTok compacto para manter proporção mobile-first -->
-                                <div class="w-full max-w-xs rounded-[2.25rem] border border-purple-400/30 bg-slate-900/70 p-5 shadow-[0_20px_50px_-20px_rgba(56,189,248,0.35)]">
-                                    <div class="aspect-[9/16] w-full overflow-hidden rounded-[1.75rem] border border-purple-400/30 bg-black/30">
-                                        <iframe src="https://www.tiktok.com/embed/v2/?lang=pt-BR&author=asincerabruxa&video_id=ZMSETtvGt" title="TikTok A Sincera Bruxa" allow="fullscreen; autoplay" loading="lazy" class="h-full w-full rounded-[1.75rem]"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+            <!-- Seção de parcerias removida -->
 
                 <section id="contato" class="relative py-20">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(244,114,182,0.15),transparent_60%)]"></div>
@@ -570,7 +463,7 @@
                         <a href="#pagamento" class="hover:text-purple-200 transition">Pagamentos</a>
                         <a href="#contato" class="hover:text-purple-200 transition">Contato</a>
                     </div>
-                    <p class="text-xs uppercase tracking-[0.35em] text-purple-200/70">Desenvolvido por <a href="https://www.watechevoce.com.br" target="_blank" rel="noopener noreferrer" class="font-semibold text-purple-100 hover:text-purple-50 transition">WATech</a></p>
+                    <p class="text-xs uppercase tracking-[0.35em] text-purple-200/70">Desenvolvido por <a href="https://www.watechevoce.com.br" target="_blank" rel="noopener noreferrer" class="font-semibold text-purple-100 hover:text-purple-50 transition">W.A.Techevoce</a></p>
                 </div>
             </footer>
         </div>
