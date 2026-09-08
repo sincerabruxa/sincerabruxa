@@ -12,7 +12,6 @@ import requests
 from bs4 import BeautifulSoup
 from flask import Blueprint, jsonify, render_template, request
 
-from config import Config
 main_bp = Blueprint("main", __name__)
 
 logger = logging.getLogger(__name__)
@@ -227,46 +226,10 @@ def get_fase_lua() -> str:
         return "Erro ao acessar o calendário lunar."
 
 
-@main_bp.route("/", methods=["GET", "POST"])
+@main_bp.route("/", methods=["GET"])
 def index():
-    """Página principal."""
-    horoscopo_diario = (
-        "Sintonize-se com o horóscopo do dia e descubra os sinais que o universo envia ao seu coração."
-    )
-    horoscopo_semanal = "Escolha seu signo e tipo de horóscopo para ver a previsão semanal."
-    signo = ""
-    fase_lua = get_fase_lua()
-    signo_consulta = ""
-    signo_consulta_label = ""
-
-    if request.method == "POST":
-        signo = request.form.get("signo")
-        if signo:
-            # Tentativa de busca com fallbacks amigáveis para o usuário
-            res_diario = get_horoscopo_diario(signo)
-            res_semanal = get_horoscopo_semanal(signo)
-            
-            horoscopo_diario = res_diario or "Os astros estão em silêncio hoje. Tente novamente em alguns instantes."
-            horoscopo_semanal = res_semanal or "A previsão semanal está sendo escrita pelas estrelas. Volte mais tarde!"
-            
-            logger.info("Horóscopo semanal para %s: %s", signo, horoscopo_semanal)
-            signo_consulta = signo
-            signo_consulta_label = Config.SIGNOS.get(signo, signo.capitalize())
-
-    return render_template(
-        "index.html",
-        horoscopo_diario=horoscopo_diario,
-        horoscopo_semanal=horoscopo_semanal,
-        signo="",
-        signo_consulta=signo_consulta,
-        signo_consulta_label=signo_consulta_label,
-        fase_lua=fase_lua,
-        signos_select=Config.get_signos_select(),
-        parcerias=Config.PARCERIAS,
-        servicos=Config.SERVICOS,
-        depoimentos=Config.DEPOIMENTOS,
-        midias_sociais=Config.MIDIAS_SOCIAIS,
-    )
+    """Página de site indisponível / captação de leads."""
+    return render_template("offline.html")
 
 
 @main_bp.route("/horoscopo", methods=["POST"])
@@ -281,41 +244,13 @@ def horoscopo_api():
 @main_bp.app_errorhandler(404)
 def not_found(error):  # noqa: ARG001 - parâmetro exigido pelo Flask
     """Página 404 personalizada."""
-    return (
-        render_template(
-            "index.html",
-            horoscopo_diario="Página não encontrada. Volte ao início.",
-            horoscopo_semanal="",
-            signo="",
-            fase_lua=get_fase_lua(),
-            signos_select=Config.get_signos_select(),
-            parcerias=Config.PARCERIAS,
-            servicos=Config.SERVICOS,
-            depoimentos=Config.DEPOIMENTOS,
-            midias_sociais=Config.MIDIAS_SOCIAIS,
-        ),
-        404,
-    )
+    return render_template("offline.html"), 404
 
 
 @main_bp.app_errorhandler(500)
 def internal_error(error):  # noqa: ARG001 - parâmetro exigido pelo Flask
     """Página 500 personalizada."""
-    return (
-        render_template(
-            "index.html",
-            horoscopo_diario="Erro interno do servidor. Tente novamente.",
-            horoscopo_semanal="",
-            signo="",
-            fase_lua=get_fase_lua(),
-            signos_select=Config.get_signos_select(),
-            parcerias=Config.PARCERIAS,
-            servicos=Config.SERVICOS,
-            depoimentos=Config.DEPOIMENTOS,
-            midias_sociais=Config.MIDIAS_SOCIAIS,
-        ),
-        500,
-    )
+    return render_template("offline.html"), 500
 
 
 def _extract_text_from_next_data(data: dict) -> str | None:
