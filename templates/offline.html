@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site temporariamente indisponível</title>
-    <meta name="description" content="Este site está temporariamente indisponível. Para sites, sistemas e presença digital, acesse www.watechevoce.com.br">
+    <title>W.A.Techevoce | Site, PDV e ERP sob medida</title>
+    <meta name="description" content="Este domínio está temporariamente offline. Fale com a W.A.Techevoce para site, app ou PDV & ERP sob medida. Diagnóstico gratuito, sem compromisso.">
     <meta name="robots" content="noindex, nofollow">
-    <meta name="theme-color" content="#0b1220">
+    <meta name="theme-color" content="#071018">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { color-scheme: dark; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,48 +19,173 @@
             align-items: center;
             justify-content: center;
             padding: 24px;
-            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-            background: #0b1220;
-            color: #e8eef8;
+            font-family: Manrope, system-ui, sans-serif;
+            background: #071018;
+            color: #eef4fb;
+        }
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::before {
+            width: 420px;
+            height: 420px;
+            top: -120px;
+            right: -80px;
+            background: rgba(14, 165, 233, 0.22);
+        }
+        body::after {
+            width: 380px;
+            height: 380px;
+            bottom: -140px;
+            left: -90px;
+            background: rgba(37, 99, 235, 0.2);
         }
         main {
+            position: relative;
+            z-index: 1;
             width: 100%;
-            max-width: 440px;
+            max-width: 560px;
+            padding: 36px 28px 32px;
+            border-radius: 28px;
+            background: linear-gradient(180deg, rgba(15, 23, 36, 0.88), rgba(8, 14, 24, 0.92));
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
             text-align: center;
         }
-        h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 12px;
-        }
-        p {
-            color: #9fb0c9;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 28px;
-        }
-        a {
-            display: inline-block;
-            padding: 12px 22px;
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 22px;
+            padding: 6px 12px;
             border-radius: 999px;
-            background: #2563eb;
-            color: #fff;
+            border: 1px solid rgba(251, 191, 36, 0.28);
+            background: rgba(251, 191, 36, 0.08);
+            color: #fcd34d;
+            font-size: 0.75rem;
             font-weight: 600;
-            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .badge::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #f59e0b;
+        }
+        .brand {
+            margin-bottom: 18px;
+            color: #7dd3fc;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        h1 {
+            margin-bottom: 12px;
+            font-size: clamp(1.55rem, 5vw, 2.05rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+        }
+        .lead {
+            margin: 0 auto 26px;
+            max-width: 42ch;
+            color: #9fb3c8;
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+        .features {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 28px;
+            text-align: left;
+        }
+        .features li {
+            list-style: none;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            color: #d7e3ef;
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+        .features span {
+            display: block;
+            margin-top: 2px;
+            color: #8ea3b8;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .actions {
+            display: grid;
+            gap: 10px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 12px 18px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.98rem;
             text-decoration: none;
         }
-        a:hover { background: #1d4ed8; }
-        a:focus-visible { outline: 2px solid #93c5fd; outline-offset: 3px; }
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #0ea5e9);
+            color: #fff;
+            box-shadow: 0 12px 30px rgba(14, 165, 233, 0.25);
+        }
+        .btn-primary:hover { filter: brightness(1.08); }
+        .btn-secondary {
+            border: 1px solid rgba(148, 163, 184, 0.24);
+            color: #dbe7f3;
+            background: transparent;
+        }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.04); }
+        .btn:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 3px; }
+        .note {
+            margin-top: 18px;
+            color: #7f93a8;
+            font-size: 0.8rem;
+        }
+        @media (min-width: 520px) {
+            main { padding: 44px 40px 36px; }
+            .actions { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
     <main>
-        <h1>Este site está temporariamente indisponível.</h1>
-        <p>Para sites, sistemas e presença digital, fale com a gente:</p>
-        <a href="https://www.watechevoce.com.br" rel="noopener noreferrer">
-            www.watechevoce.com.br
-        </a>
+        <p class="badge">Domínio temporariamente offline</p>
+        <p class="brand">W.A.Techevoce</p>
+        <h1>Precisa de um site ou sistema que gere clientes?</h1>
+        <p class="lead">
+            Este endereço saiu do ar, mas a equipe que cria sites, apps e PDV &amp; ERP sob medida está pronta para o próximo projeto.
+        </p>
+        <ul class="features">
+            <li>Site e app que convertem no WhatsApp<span>Presença profissional com fluxo de contato direto.</span></li>
+            <li>PDV &amp; ERP sob medida<span>Caixa, estoque e gestão no mesmo sistema.</span></li>
+            <li>Diagnóstico gratuito<span>Escopo e proposta antes de qualquer contrato.</span></li>
+        </ul>
+        <div class="actions">
+            <a class="btn btn-primary" href="https://www.watechevoce.com.br/contato?utm_source=asincerabruxa&amp;utm_medium=offline&amp;utm_campaign=lead_capture" rel="noopener noreferrer">
+                Quero diagnóstico gratuito
+            </a>
+            <a class="btn btn-secondary" href="https://www.watechevoce.com.br/?utm_source=asincerabruxa&amp;utm_medium=offline&amp;utm_campaign=lead_capture" rel="noopener noreferrer">
+                Ver o site
+            </a>
+        </div>
+        <p class="note">Sem compromisso. Resposta direta no WhatsApp.</p>
     </main>
 </body>
 </html>
